@@ -153,6 +153,16 @@
       padding: 10px;
     }
 
+    img.photo {
+      height: auto;
+      /* 세로를 원본 비율대로 계산 */
+      padding: 0;
+      /* placeholder용 여백 제거 */
+      display: block;
+      object-fit: unset;
+      /* cover 해제 (잘림 방지) */
+    }
+
     .hero-text {
       flex: 1 1 340px;
       min-width: 280px
@@ -552,8 +562,10 @@
           perturbation-response prediction.</p>
         <p style="font-size:.92rem;color:var(--muted)"><strong style="color:var(--text)">Experimental platform:</strong>
           custom high-throughput quantitative phase (digital holographic) microscopy, so I generate the single-cell
-          imaging data I model. Ph.D. candidate at DGIST with Prof. Inkyu Moon; <strong
-            style="color:var(--text)">seeking postdoctoral positions in machine learning for biology.</strong></p>
+          imaging data I model. Ph.D. candidate at DGIST with Prof. Inkyu Moon</p>
+        <p>
+          <strong style="color:var(--text)">seeking postdoctoral positions in AI for biological imaging.</strong>
+        </p>
         <div class="tags">
           <span class="tag">Cross-modal generative modeling</span>
           <span class="tag">Flow matching</span>
@@ -599,7 +611,8 @@
               and circulating tumor cells.</p>
             <div class="refs"><em>Biosens. Bioelectron.</em> (2022) · <em>IEEE J. Biomed. Health Inform.</em> (2022) ·
               <em>Bioinformatics</em> (2025) · <em>Comput. Methods Programs Biomed.</em> (2025) · <em>Adv. Sensor
-                Res.</em> (2025)</div>
+                Res.</em> (2025)
+            </div>
           </div>
 
           <div class="card">
