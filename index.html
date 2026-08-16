@@ -153,6 +153,16 @@
       padding: 10px;
     }
 
+    img.photo {
+      height: auto;
+      /* 세로를 원본 비율대로 계산 */
+      padding: 0;
+      /* placeholder용 여백 제거 */
+      display: block;
+      object-fit: unset;
+      /* cover 해제 (잘림 방지) */
+    }
+
     .hero-text {
       flex: 1 1 340px;
       min-width: 280px
@@ -522,7 +532,8 @@
   <header>
     <div class="wrap hero">
       <!-- EDIT ME: replace this div with  <img class="photo" src="assets/photo.jpg" alt="Seonghwan Park"> -->
-      <div class="photo">Add<br>assets/photo.jpg</div>
+      <!-- <div class="photo">Add<br>assets/photo.jpg</div> -->
+      <img class="photo" src="assets/photo.jpg" alt="Seonghwan Park">
       <div class="hero-text">
         <h1>Seonghwan Park</h1>
         <p class="role">Generative models for cross-modal single-cell imaging</p>
@@ -609,7 +620,8 @@
               and circulating tumor cells.</p>
             <div class="refs"><em>Biosens. Bioelectron.</em> (2022) · <em>IEEE J. Biomed. Health Inform.</em> (2022) ·
               <em>Bioinformatics</em> (2025) · <em>Comput. Methods Programs Biomed.</em> (2025) · <em>Adv. Sensor
-                Res.</em> (2025)</div>
+                Res.</em> (2025)
+            </div>
           </div>
 
           <div class="card">
