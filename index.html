@@ -153,16 +153,6 @@
       padding: 10px;
     }
 
-    img.photo {
-      height: auto;
-      /* 세로를 원본 비율대로 계산 */
-      padding: 0;
-      /* placeholder용 여백 제거 */
-      display: block;
-      object-fit: unset;
-      /* cover 해제 (잘림 방지) */
-    }
-
     .hero-text {
       flex: 1 1 340px;
       min-width: 280px
@@ -518,6 +508,7 @@
   <nav>
     <div class="wrap">
       <a class="brand" href="#top">Seonghwan Park</a>
+      <a href="#about">About</a>
       <a href="#research">Research</a>
       <a href="#education">Education</a>
       <a href="#publications">Publications</a>
@@ -531,8 +522,7 @@
   <header>
     <div class="wrap hero">
       <!-- EDIT ME: replace this div with  <img class="photo" src="assets/photo.jpg" alt="Seonghwan Park"> -->
-      <!-- <div class="photo">Add<br>assets/photo.jpg</div> -->
-      <img class="photo" src="assets/photo.jpg" alt="Seonghwan Park">
+      <div class="photo">Add<br>assets/photo.jpg</div>
       <div class="hero-text">
         <h1>Seonghwan Park</h1>
         <p class="role">Generative models for cross-modal single-cell imaging</p>
@@ -553,19 +543,23 @@
 
   <main>
 
-    <section id="research">
+    <section id="about">
       <div class="wrap">
-        <h2>Research</h2>
-        <p>I develop generative models (diffusion, flow matching, and adversarial) that learn <strong>cross-modal maps
-            between label-free images and fluorescence readouts of single cells</strong> from unpaired or weakly paired
-          data, using physics-informed inductive biases, toward scalable single-cell phenotyping and
-          perturbation-response prediction.</p>
-        <p style="font-size:.92rem;color:var(--muted)"><strong style="color:var(--text)">Experimental platform:</strong>
-          custom high-throughput quantitative phase (digital holographic) microscopy, so I generate the single-cell
-          imaging data I model. Ph.D. candidate at DGIST with Prof. Inkyu Moon</p>
-        <p>
-          <strong style="color:var(--text)">seeking postdoctoral positions in AI for biological imaging.</strong>
-        </p>
+        <h2>About</h2>
+        <p>I am a Ph.D. candidate at DGIST, working with <a
+            href="https://scholar.google.com/citations?user=RPYa4cYAAAAJ" target="_blank" rel="noopener">Inkyu Moon</a>
+          in the Intelligent Imaging and Vision Systems Lab on generative models for biological imaging.</p>
+        <p>My research develops diffusion, flow matching, and adversarial models that learn cross-modal maps between
+          label-free images and fluorescence readouts of single cells, mostly from unpaired or weakly paired data. I
+          also build the platform these models are trained on: a custom high-throughput quantitative phase (digital
+          holographic) microscope, so I generate the single-cell imaging data I model.</p>
+        <p>Before this, I completed my B.S. at DGIST, and from 2021 to 2024 I was a researcher at the DGIST Research
+          Center of Robotics and Mechatronics Engineering.</p>
+        <p>I am interested in problems at the intersection of generative modeling, computational imaging, and cell
+          biology: learning cross-modal maps without paired ground truth, image-based phenotyping, and predicting how
+          cells respond to perturbations. I have also worked on learning under severe measurement constraints, including
+          photon-limited imaging and privacy-preserving federated learning.</p>
+        <p>I am currently seeking postdoctoral positions in AI for biological imaging.</p>
         <div class="tags">
           <span class="tag">Cross-modal generative modeling</span>
           <span class="tag">Flow matching</span>
@@ -576,8 +570,12 @@
           <span class="tag">Image-based morphological profiling</span>
           <span class="tag">Perturbation response prediction</span>
         </div>
+      </div>
+    </section>
 
-        <h3 style="font-size:.88rem;font-weight:700;margin:30px 0 14px">Selected directions</h3>
+    <section id="research">
+      <div class="wrap">
+        <h2>Research</h2>
         <div class="cards">
 
           <div class="card">
@@ -611,8 +609,7 @@
               and circulating tumor cells.</p>
             <div class="refs"><em>Biosens. Bioelectron.</em> (2022) · <em>IEEE J. Biomed. Health Inform.</em> (2022) ·
               <em>Bioinformatics</em> (2025) · <em>Comput. Methods Programs Biomed.</em> (2025) · <em>Adv. Sensor
-                Res.</em> (2025)
-            </div>
+                Res.</em> (2025)</div>
           </div>
 
           <div class="card">
