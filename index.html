@@ -1,519 +1,931 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Seonghwan Park</title>
-<meta name="description" content="Seonghwan Park, Ph.D. candidate at DGIST. Generative models (diffusion, flow matching) for cross-modal prediction between label-free images and fluorescence readouts of single cells; label-free single-cell phenotyping and perturbation-response prediction.">
-<meta name="author" content="Seonghwan Park">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Seonghwan Park</title>
+  <meta name="description"
+    content="Seonghwan Park, Ph.D. candidate at DGIST. Generative models (diffusion, flow matching) for cross-modal prediction between label-free images and fluorescence readouts of single cells; label-free single-cell phenotyping and perturbation-response prediction.">
+  <meta name="author" content="Seonghwan Park">
 
-<!-- Social preview -->
-<meta property="og:title" content="Seonghwan Park">
-<meta property="og:description" content="Generative models for cross-modal single-cell imaging: label-free phenotyping and perturbation-response prediction.">
-<meta property="og:type" content="website">
+  <!-- Social preview -->
+  <meta property="og:title" content="Seonghwan Park">
+  <meta property="og:description"
+    content="Generative models for cross-modal single-cell imaging: label-free phenotyping and perturbation-response prediction.">
+  <meta property="og:type" content="website">
 
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔬</text></svg>">
+  <link rel="icon"
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔬</text></svg>">
 
-<style>
-/* ============================================================
+  <style>
+    /* ============================================================
    EDIT ME: colours live here. --accent is the one that matters.
    ============================================================ */
-:root{
-  --accent:#1f3864;
-  --accent-soft:#e8edf6;
-  --bg:#ffffff;
-  --surface:#f7f8fa;
-  --text:#1a1d21;
-  --muted:#5c6470;
-  --line:#e3e6ea;
-  --maxw:860px;
-}
-@media (prefers-color-scheme: dark){
-  :root{
-    --accent:#8ab4f8;
-    --accent-soft:#1b2536;
-    --bg:#0f1115;
-    --surface:#161a20;
-    --text:#e6e8eb;
-    --muted:#9aa3af;
-    --line:#262b33;
-  }
-}
+    :root {
+      --accent: #1f3864;
+      --accent-soft: #e8edf6;
+      --bg: #ffffff;
+      --surface: #f7f8fa;
+      --text: #1a1d21;
+      --muted: #5c6470;
+      --line: #e3e6ea;
+      --maxw: 860px;
+    }
 
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{
-  margin:0;
-  background:var(--bg);
-  color:var(--text);
-  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Helvetica Neue",Helvetica,Arial,"Noto Sans KR",sans-serif;
-  font-size:16px;
-  line-height:1.65;
-  -webkit-font-smoothing:antialiased;
-}
-a{color:var(--accent);text-decoration:none}
-a:hover{text-decoration:underline}
-.wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --accent: #8ab4f8;
+        --accent-soft: #1b2536;
+        --bg: #0f1115;
+        --surface: #161a20;
+        --text: #e6e8eb;
+        --muted: #9aa3af;
+        --line: #262b33;
+      }
+    }
 
-/* ---------- nav ---------- */
-nav{
-  position:sticky;top:0;z-index:50;
-  background:color-mix(in srgb, var(--bg) 88%, transparent);
-  backdrop-filter:saturate(180%) blur(12px);
-  border-bottom:1px solid var(--line);
-}
-nav .wrap{display:flex;gap:4px;align-items:center;height:52px;overflow-x:auto;scrollbar-width:none}
-nav .wrap::-webkit-scrollbar{display:none}
-nav a{
-  padding:6px 11px;border-radius:7px;font-size:14px;font-weight:500;
-  color:var(--muted);white-space:nowrap;
-}
-nav a:hover{background:var(--surface);color:var(--text);text-decoration:none}
-nav .brand{font-weight:700;color:var(--text);margin-right:auto;padding-left:0;font-size:15px}
+    * {
+      box-sizing: border-box
+    }
 
-/* ---------- hero ---------- */
-header{padding:56px 0 40px}
-.hero{display:flex;gap:34px;align-items:flex-start;flex-wrap:wrap}
-.photo{
-  width:150px;height:150px;flex:0 0 150px;border-radius:14px;
-  object-fit:cover;background:var(--surface);
-  border:1px solid var(--line);
-  display:flex;align-items:center;justify-content:center;
-  color:var(--muted);font-size:12px;text-align:center;padding:10px;
-}
-.hero-text{flex:1 1 340px;min-width:280px}
-h1{font-size:2.1rem;line-height:1.15;margin:0 0 6px;letter-spacing:-.02em}
-.role{color:var(--muted);font-size:1.02rem;margin:0 0 4px}
-.affil{color:var(--muted);font-size:.92rem;margin:0 0 16px}
-.links{display:flex;flex-wrap:wrap;gap:8px}
-.links a{
-  display:inline-flex;align-items:center;gap:6px;
-  padding:6px 13px;border-radius:999px;font-size:.86rem;font-weight:500;
-  background:var(--surface);border:1px solid var(--line);color:var(--text);
-}
-.links a:hover{background:var(--accent-soft);border-color:var(--accent);text-decoration:none}
-.links a.primary{background:var(--accent);color:#fff;border-color:var(--accent)}
-@media (prefers-color-scheme: dark){.links a.primary{color:#0f1115}}
+    html {
+      scroll-behavior: smooth
+    }
 
-/* ---------- sections ---------- */
-section{padding:34px 0;border-top:1px solid var(--line)}
-h2{
-  font-size:.8rem;font-weight:700;letter-spacing:.11em;text-transform:uppercase;
-  color:var(--accent);margin:0 0 18px;
-}
-h3{font-size:1.02rem;margin:0 0 6px;line-height:1.4}
-p{margin:0 0 14px}
-p:last-child{margin-bottom:0}
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Helvetica, Arial, "Noto Sans KR", sans-serif;
+      font-size: 16px;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
 
-.tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:4px}
-.tag{
-  font-size:.8rem;padding:4px 11px;border-radius:999px;
-  background:var(--accent-soft);color:var(--accent);font-weight:500;
-}
+    a {
+      color: var(--accent);
+      text-decoration: none
+    }
 
-/* ---------- research cards ---------- */
-.cards{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
-.card{
-  background:var(--surface);border:1px solid var(--line);border-radius:12px;
-  padding:20px 22px;
-}
-.card .kicker{
-  font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
-  color:var(--muted);margin-bottom:7px;
-}
-.card p{font-size:.93rem;color:var(--muted);margin:0 0 10px}
-.card .refs{font-size:.8rem;color:var(--muted);opacity:.85}
-.card .refs em{font-style:italic}
+    a:hover {
+      text-decoration: underline
+    }
 
-/* ---------- publications ---------- */
-.pubgroup{margin-bottom:26px}
-.pubgroup:last-child{margin-bottom:0}
-.pubgroup > h3{
-  font-size:.88rem;font-weight:700;color:var(--text);
-  margin:0 0 12px;padding-bottom:6px;border-bottom:1px solid var(--line);
-}
-ol.pubs{list-style:none;margin:0;padding:0;counter-reset:p}
-ol.pubs li{
-  position:relative;padding:0 0 0 30px;margin-bottom:15px;font-size:.92rem;
-}
-ol.pubs li::before{
-  counter-increment:p;content:counter(p) ".";
-  position:absolute;left:0;top:0;color:var(--muted);font-size:.82rem;
-  font-variant-numeric:tabular-nums;font-weight:600;
-}
-ol.pubs .t{display:block;font-weight:600;margin-bottom:2px;line-height:1.45}
-ol.pubs .a{display:block;color:var(--muted);font-size:.86rem;line-height:1.5}
-ol.pubs .a b{color:var(--text);font-weight:700}
-ol.pubs .v{display:block;font-size:.86rem;color:var(--muted);margin-top:1px}
-ol.pubs .v i{font-style:italic}
-.badge{
-  display:inline-block;font-size:.72rem;font-weight:700;padding:1px 7px;
-  border-radius:5px;background:var(--accent-soft);color:var(--accent);
-  margin-left:6px;vertical-align:1px;white-space:nowrap;
-}
-.badge.award{background:#fdf0d5;color:#8a5a00}
-@media (prefers-color-scheme: dark){.badge.award{background:#3a2c10;color:#f0c674}}
-.badge.status{background:transparent;border:1px solid var(--line);color:var(--muted)}
+    .wrap {
+      max-width: var(--maxw);
+      margin: 0 auto;
+      padding: 0 24px
+    }
 
-/* ---------- simple lists ---------- */
-ul.plain{list-style:none;margin:0;padding:0}
-ul.plain li{
-  display:flex;gap:16px;padding:9px 0;border-bottom:1px solid var(--line);
-  font-size:.92rem;
-}
-ul.plain li:last-child{border-bottom:none}
-ul.plain .when{
-  flex:0 0 108px;color:var(--muted);font-size:.85rem;font-variant-numeric:tabular-nums;
-}
-ul.plain .what{flex:1}
-ul.plain .what small{display:block;color:var(--muted);font-size:.84rem}
-@media (max-width:560px){
-  ul.plain li{flex-direction:column;gap:2px}
-  ul.plain .when{flex:none}
-}
+    /* ---------- nav ---------- */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: color-mix(in srgb, var(--bg) 88%, transparent);
+      backdrop-filter: saturate(180%) blur(12px);
+      border-bottom: 1px solid var(--line);
+    }
 
-details.more{margin-top:14px}
-details.more summary{
-  cursor:pointer;font-size:.88rem;color:var(--accent);font-weight:500;
-  list-style:none;padding:7px 0;
-}
-details.more summary::-webkit-details-marker{display:none}
-details.more summary::before{content:"▸\00a0\00a0";display:inline-block}
-details.more[open] summary::before{content:"▾\00a0\00a0"}
+    nav .wrap {
+      display: flex;
+      gap: 4px;
+      align-items: center;
+      height: 52px;
+      overflow-x: auto;
+      scrollbar-width: none
+    }
 
-footer{
-  border-top:1px solid var(--line);padding:26px 0 40px;
-  color:var(--muted);font-size:.84rem;
-  display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;
-}
+    nav .wrap::-webkit-scrollbar {
+      display: none
+    }
 
-@media print{
-  nav{display:none} body{font-size:11pt} section{page-break-inside:avoid}
-}
-</style>
+    nav a {
+      padding: 6px 11px;
+      border-radius: 7px;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+
+    nav a:hover {
+      background: var(--surface);
+      color: var(--text);
+      text-decoration: none
+    }
+
+    nav .brand {
+      font-weight: 700;
+      color: var(--text);
+      margin-right: auto;
+      padding-left: 0;
+      font-size: 15px
+    }
+
+    /* ---------- hero ---------- */
+    header {
+      padding: 56px 0 40px
+    }
+
+    .hero {
+      display: flex;
+      gap: 34px;
+      align-items: flex-start;
+      flex-wrap: wrap
+    }
+
+    .photo {
+      width: 150px;
+      height: 150px;
+      flex: 0 0 150px;
+      border-radius: 14px;
+      object-fit: cover;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--muted);
+      font-size: 12px;
+      text-align: center;
+      padding: 10px;
+    }
+
+    .hero-text {
+      flex: 1 1 340px;
+      min-width: 280px
+    }
+
+    h1 {
+      font-size: 2.1rem;
+      line-height: 1.15;
+      margin: 0 0 6px;
+      letter-spacing: -.02em
+    }
+
+    .role {
+      color: var(--muted);
+      font-size: 1.02rem;
+      margin: 0 0 4px
+    }
+
+    .affil {
+      color: var(--muted);
+      font-size: .92rem;
+      margin: 0 0 16px
+    }
+
+    .links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px
+    }
+
+    .links a {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 13px;
+      border-radius: 999px;
+      font-size: .86rem;
+      font-weight: 500;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      color: var(--text);
+    }
+
+    .links a:hover {
+      background: var(--accent-soft);
+      border-color: var(--accent);
+      text-decoration: none
+    }
+
+    .links a.primary {
+      background: var(--accent);
+      color: #fff;
+      border-color: var(--accent)
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .links a.primary {
+        color: #0f1115
+      }
+    }
+
+    /* ---------- sections ---------- */
+    section {
+      padding: 34px 0;
+      border-top: 1px solid var(--line)
+    }
+
+    h2 {
+      font-size: .8rem;
+      font-weight: 700;
+      letter-spacing: .11em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin: 0 0 18px;
+    }
+
+    h3 {
+      font-size: 1.02rem;
+      margin: 0 0 6px;
+      line-height: 1.4
+    }
+
+    p {
+      margin: 0 0 14px
+    }
+
+    p:last-child {
+      margin-bottom: 0
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin-top: 4px
+    }
+
+    .tag {
+      font-size: .8rem;
+      padding: 4px 11px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-weight: 500;
+    }
+
+    /* ---------- research cards ---------- */
+    .cards {
+      display: grid;
+      gap: 16px;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr))
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 20px 22px;
+    }
+
+    .card .kicker {
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 7px;
+    }
+
+    .card p {
+      font-size: .93rem;
+      color: var(--muted);
+      margin: 0 0 10px
+    }
+
+    .card .refs {
+      font-size: .8rem;
+      color: var(--muted);
+      opacity: .85
+    }
+
+    .card .refs em {
+      font-style: italic
+    }
+
+    /* ---------- publications ---------- */
+    .pubgroup {
+      margin-bottom: 26px
+    }
+
+    .pubgroup:last-child {
+      margin-bottom: 0
+    }
+
+    .pubgroup>h3 {
+      font-size: .88rem;
+      font-weight: 700;
+      color: var(--text);
+      margin: 0 0 12px;
+      padding-bottom: 6px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    ol.pubs {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      counter-reset: p
+    }
+
+    ol.pubs li {
+      position: relative;
+      padding: 0 0 0 30px;
+      margin-bottom: 15px;
+      font-size: .92rem;
+    }
+
+    ol.pubs li::before {
+      counter-increment: p;
+      content: counter(p) ".";
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: var(--muted);
+      font-size: .82rem;
+      font-variant-numeric: tabular-nums;
+      font-weight: 600;
+    }
+
+    ol.pubs .t {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 2px;
+      line-height: 1.45
+    }
+
+    ol.pubs .a {
+      display: block;
+      color: var(--muted);
+      font-size: .86rem;
+      line-height: 1.5
+    }
+
+    ol.pubs .a b {
+      color: var(--text);
+      font-weight: 700
+    }
+
+    ol.pubs .v {
+      display: block;
+      font-size: .86rem;
+      color: var(--muted);
+      margin-top: 1px
+    }
+
+    ol.pubs .v i {
+      font-style: italic
+    }
+
+    .badge {
+      display: inline-block;
+      font-size: .72rem;
+      font-weight: 700;
+      padding: 1px 7px;
+      border-radius: 5px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      margin-left: 6px;
+      vertical-align: 1px;
+      white-space: nowrap;
+    }
+
+    .badge.award {
+      background: #fdf0d5;
+      color: #8a5a00
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .badge.award {
+        background: #3a2c10;
+        color: #f0c674
+      }
+    }
+
+    .badge.status {
+      background: transparent;
+      border: 1px solid var(--line);
+      color: var(--muted)
+    }
+
+    /* ---------- simple lists ---------- */
+    ul.plain {
+      list-style: none;
+      margin: 0;
+      padding: 0
+    }
+
+    ul.plain li {
+      display: flex;
+      gap: 16px;
+      padding: 9px 0;
+      border-bottom: 1px solid var(--line);
+      font-size: .92rem;
+    }
+
+    ul.plain li:last-child {
+      border-bottom: none
+    }
+
+    ul.plain .when {
+      flex: 0 0 108px;
+      color: var(--muted);
+      font-size: .85rem;
+      font-variant-numeric: tabular-nums;
+    }
+
+    ul.plain .what {
+      flex: 1
+    }
+
+    ul.plain .what small {
+      display: block;
+      color: var(--muted);
+      font-size: .84rem
+    }
+
+    @media (max-width:560px) {
+      ul.plain li {
+        flex-direction: column;
+        gap: 2px
+      }
+
+      ul.plain .when {
+        flex: none
+      }
+    }
+
+    details.more {
+      margin-top: 14px
+    }
+
+    details.more summary {
+      cursor: pointer;
+      font-size: .88rem;
+      color: var(--accent);
+      font-weight: 500;
+      list-style: none;
+      padding: 7px 0;
+    }
+
+    details.more summary::-webkit-details-marker {
+      display: none
+    }
+
+    details.more summary::before {
+      content: "▸\00a0\00a0";
+      display: inline-block
+    }
+
+    details.more[open] summary::before {
+      content: "▾\00a0\00a0"
+    }
+
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 26px 0 40px;
+      color: var(--muted);
+      font-size: .84rem;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    @media print {
+      nav {
+        display: none
+      }
+
+      body {
+        font-size: 11pt
+      }
+
+      section {
+        page-break-inside: avoid
+      }
+    }
+  </style>
 </head>
+
 <body>
 
-<nav>
-  <div class="wrap">
-    <a class="brand" href="#top">Seonghwan Park</a>
-    <a href="#research">Research</a>
-    <a href="#education">Education</a>
-    <a href="#publications">Publications</a>
-    <a href="#patents">Patents</a>
-    <a href="#awards">Experience</a>
-  </div>
-</nav>
+  <nav>
+    <div class="wrap">
+      <a class="brand" href="#top">Seonghwan Park</a>
+      <a href="#research">Research</a>
+      <a href="#education">Education</a>
+      <a href="#publications">Publications</a>
+      <a href="#patents">Patents</a>
+      <a href="#awards">Experience</a>
+    </div>
+  </nav>
 
-<div id="top"></div>
+  <div id="top"></div>
 
-<header>
-  <div class="wrap hero">
-    <!-- EDIT ME: replace this div with  <img class="photo" src="assets/photo.jpg" alt="Seonghwan Park"> -->
-    <div class="photo">Add<br>assets/photo.jpg</div>
-    <div class="hero-text">
-      <h1>Seonghwan Park</h1>
-      <p class="role">Generative models for cross-modal single-cell imaging</p>
-      <p class="affil">Ph.D. Candidate, Intelligent Imaging and Vision Systems Lab · Dept. of Robotics and Mechatronics Engineering, DGIST, Daegu, South Korea</p>
-      <div class="links">
-        <a class="primary" href="assets/CV_Seonghwan_Park.pdf">Curriculum Vitae</a>
-        <a href="mailto:tdn02007@dgist.ac.kr">Email</a>
-        <a href="https://scholar.google.co.kr/citations?user=fcOVaYoAAAAJ" target="_blank" rel="noopener">Google Scholar</a>
-        <!-- EDIT ME: add your GitHub / LinkedIn / ORCID here
+  <header>
+    <div class="wrap hero">
+      <!-- EDIT ME: replace this div with  <img class="photo" src="assets/photo.jpg" alt="Seonghwan Park"> -->
+      <!-- <div class="photo">Add<br>assets/photo.jpg</div> -->
+      <img class="photo" src="assets/photo.jpg" alt="Seonghwan Park">
+      <div class="hero-text">
+        <h1>Seonghwan Park</h1>
+        <p class="role">Generative models for cross-modal single-cell imaging</p>
+        <p class="affil">Ph.D. Candidate, Intelligent Imaging and Vision Systems Lab · Dept. of Robotics and
+          Mechatronics Engineering, DGIST, Daegu, South Korea</p>
+        <div class="links">
+          <a class="primary" href="assets/CV_Seonghwan_Park.pdf">Curriculum Vitae</a>
+          <a href="mailto:tdn02007@dgist.ac.kr">Email</a>
+          <a href="https://scholar.google.co.kr/citations?user=fcOVaYoAAAAJ" target="_blank" rel="noopener">Google
+            Scholar</a>
+          <!-- EDIT ME: add your GitHub / LinkedIn / ORCID here
         <a href="https://github.com/USERNAME" target="_blank" rel="noopener">GitHub</a>
         -->
+        </div>
       </div>
     </div>
-  </div>
-</header>
+  </header>
 
-<main>
+  <main>
 
-<section id="research">
-  <div class="wrap">
-    <h2>Research</h2>
-    <p>I develop generative models (diffusion, flow matching, and adversarial) that learn <strong>cross-modal maps between label-free images and fluorescence readouts of single cells</strong> from unpaired or weakly paired data, using physics-informed inductive biases, toward scalable single-cell phenotyping and perturbation-response prediction.</p>
-    <p style="font-size:.92rem;color:var(--muted)"><strong style="color:var(--text)">Experimental platform:</strong> custom high-throughput quantitative phase (digital holographic) microscopy, so I generate the single-cell imaging data I model. Ph.D. candidate at DGIST with Prof. Inkyu Moon; <strong style="color:var(--text)">seeking postdoctoral positions in machine learning for biology.</strong></p>
-    <div class="tags">
-      <span class="tag">Cross-modal generative modeling</span>
-      <span class="tag">Flow matching</span>
-      <span class="tag">Diffusion models</span>
-      <span class="tag">Multimodal alignment</span>
-      <span class="tag">Self- and unsupervised learning</span>
-      <span class="tag">Label-free single-cell phenotyping</span>
-      <span class="tag">Image-based morphological profiling</span>
-      <span class="tag">Perturbation response prediction</span>
-    </div>
+    <section id="research">
+      <div class="wrap">
+        <h2>Research</h2>
+        <p>I develop generative models (diffusion, flow matching, and adversarial) that learn <strong>cross-modal maps
+            between label-free images and fluorescence readouts of single cells</strong> from unpaired or weakly paired
+          data, using physics-informed inductive biases, toward scalable single-cell phenotyping and
+          perturbation-response prediction.</p>
+        <p style="font-size:.92rem;color:var(--muted)"><strong style="color:var(--text)">Experimental platform:</strong>
+          custom high-throughput quantitative phase (digital holographic) microscopy, so I generate the single-cell
+          imaging data I model. Ph.D. candidate at DGIST with Prof. Inkyu Moon; <strong
+            style="color:var(--text)">seeking postdoctoral positions in machine learning for biology.</strong></p>
+        <div class="tags">
+          <span class="tag">Cross-modal generative modeling</span>
+          <span class="tag">Flow matching</span>
+          <span class="tag">Diffusion models</span>
+          <span class="tag">Multimodal alignment</span>
+          <span class="tag">Self- and unsupervised learning</span>
+          <span class="tag">Label-free single-cell phenotyping</span>
+          <span class="tag">Image-based morphological profiling</span>
+          <span class="tag">Perturbation response prediction</span>
+        </div>
 
-    <h3 style="font-size:.88rem;font-weight:700;margin:30px 0 14px">Selected directions</h3>
-    <div class="cards">
+        <h3 style="font-size:.88rem;font-weight:700;margin:30px 0 14px">Selected directions</h3>
+        <div class="cards">
 
-      <div class="card">
-        <div class="kicker">Cross-modal generation</div>
-        <h3>Predicting stained readouts from label-free images</h3>
-        <p>A single label-free measurement carries enough information to predict what a stain would have shown. I train generative models that map label-free cell images to fluorescence readouts, including virtual three-dimensional confocal fluorescence, so that molecular-scale contrast is recovered without staining, scanning, or a second optical path.</p>
-        <div class="refs"><em>Microsystems &amp; Nanoengineering</em> (in press, 2026) · <em>Laser &amp; Photonics Reviews</em> (under review) · <em>Eng. Appl. Artif. Intell.</em> (2025)</div>
+          <div class="card">
+            <div class="kicker">Cross-modal generation</div>
+            <h3>Predicting stained readouts from label-free images</h3>
+            <p>A single label-free measurement carries enough information to predict what a stain would have shown. I
+              train generative models that map label-free cell images to fluorescence readouts, including virtual
+              three-dimensional confocal fluorescence, so that molecular-scale contrast is recovered without staining,
+              scanning, or a second optical path.</p>
+            <div class="refs"><em>Microsystems &amp; Nanoengineering</em> (in press, 2026) · <em>Laser &amp; Photonics
+                Reviews</em> (under review) · <em>Eng. Appl. Artif. Intell.</em> (2025)</div>
+          </div>
+
+          <div class="card">
+            <div class="kicker">Learning without paired data</div>
+            <h3>Unpaired and weakly paired distribution translation</h3>
+            <p>Paired ground truth is the bottleneck in cross-modal biological imaging, because the two modalities
+              usually cannot be measured on the same cell at the same instant. I use unsupervised and cyclic diffusion
+              formulations that learn the mapping from unpaired populations, which makes the models portable across
+              samples, instruments, and acquisition setups.</p>
+            <div class="refs"><em>IEEE Trans. Multimedia</em> (under review) · <em>Eng. Appl. Artif. Intell.</em> (2026)
+              · <em>Opt. Lasers Eng.</em> (2023) · <em>Biomed. Opt. Express</em> (2021)</div>
+          </div>
+
+          <div class="card">
+            <div class="kicker">Phenotyping &amp; perturbation</div>
+            <h3>From single-cell morphology to biological readouts</h3>
+            <p>Image-based morphological profiling that resolves biologically meaningful state: drug-response and
+              cardiotoxicity phenotypes in treated cardiomyocytes, dexamethasone effects on young versus aged skeletal
+              muscle, storage lesion grading in stored red blood cells, and stain-free classification of cancer cells
+              and circulating tumor cells.</p>
+            <div class="refs"><em>Biosens. Bioelectron.</em> (2022) · <em>IEEE J. Biomed. Health Inform.</em> (2022) ·
+              <em>Bioinformatics</em> (2025) · <em>Comput. Methods Programs Biomed.</em> (2025) · <em>Adv. Sensor
+                Res.</em> (2025)</div>
+          </div>
+
+          <div class="card">
+            <div class="kicker">Scale and constraint</div>
+            <h3>Learning when measurements are scarce or cannot be shared</h3>
+            <p>Label-free acquisition is cheap enough to generate single-cell corpora at the scale generative models
+              need. I also study the opposite regime: what a model can learn when photons are scarce, or when biomedical
+              data cannot leave the site it was collected at, via photon-limited classification and privacy-preserving
+              federated learning.</p>
+            <div class="refs"><em>Information Sciences</em> (2026) · <em>Mathematics</em> (2026) · <em>Cryptography</em>
+              (2023)</div>
+          </div>
+
+        </div>
       </div>
-
-      <div class="card">
-        <div class="kicker">Learning without paired data</div>
-        <h3>Unpaired and weakly paired distribution translation</h3>
-        <p>Paired ground truth is the bottleneck in cross-modal biological imaging, because the two modalities usually cannot be measured on the same cell at the same instant. I use unsupervised and cyclic diffusion formulations that learn the mapping from unpaired populations, which makes the models portable across samples, instruments, and acquisition setups.</p>
-        <div class="refs"><em>IEEE Trans. Multimedia</em> (under review) · <em>Eng. Appl. Artif. Intell.</em> (2026) · <em>Opt. Lasers Eng.</em> (2023) · <em>Biomed. Opt. Express</em> (2021)</div>
+    </section>
+    <section id="education">
+      <div class="wrap">
+        <h2>Education</h2>
+        <ul class="plain">
+          <li><span class="when">2019 – present</span><span class="what"><strong>Ph.D., Robotics and Mechatronics
+                Engineering</strong>, DGIST<small>Integrated M.S./Ph.D. program · Advisor: Prof. Inkyu Moon, Intelligent
+                Imaging and Vision Systems Laboratory · expected Feb. 2027<br>Dissertation: <i>AI-Driven Intelligent
+                  Digital Holographic Microscopy for Automated Phase Reconstruction and Label-Free Quantitative Cellular
+                  Analysis</i></small></span></li>
+          <li><span class="when">2014 – 2019</span><span class="what"><strong>B.S., School of Undergraduate
+                Studies</strong>, DGIST</span></li>
+        </ul>
       </div>
+    </section>
 
-      <div class="card">
-        <div class="kicker">Phenotyping &amp; perturbation</div>
-        <h3>From single-cell morphology to biological readouts</h3>
-        <p>Image-based morphological profiling that resolves biologically meaningful state: drug-response and cardiotoxicity phenotypes in treated cardiomyocytes, dexamethasone effects on young versus aged skeletal muscle, storage lesion grading in stored red blood cells, and stain-free classification of cancer cells and circulating tumor cells.</p>
-        <div class="refs"><em>Biosens. Bioelectron.</em> (2022) · <em>IEEE J. Biomed. Health Inform.</em> (2022) · <em>Bioinformatics</em> (2025) · <em>Comput. Methods Programs Biomed.</em> (2025) · <em>Adv. Sensor Res.</em> (2025)</div>
+    <section id="publications">
+      <div class="wrap">
+        <h2>Publications</h2>
+        <p style="font-size:.88rem;color:var(--muted)">19 journal articles (11 as first author), 8 international
+          conference papers. Impact factors are from the 2025 Journal Citation Reports. Full list on <a
+            href="https://scholar.google.co.kr/citations?user=fcOVaYoAAAAJ" target="_blank" rel="noopener">Google
+            Scholar</a>.</p>
+
+        <div class="pubgroup">
+          <h3>Under Review / In Press</h3>
+          <ol class="pubs">
+            <li>
+              <span class="t">Single-shot physics-informed multimodal reconstruction of quantitative phase and virtual
+                3D confocal fluorescence from a Gabor hologram</span>
+              <span class="a"><b>S. Park</b>, S. Moon, J. Park, B. Javidi, I. Moon</span>
+              <span class="v"><i>Laser &amp; Photonics Reviews</i><span class="badge status">under review</span><span
+                  class="badge">IF 9.7 · Q1 top 8.1%</span></span>
+            </li>
+            <li>
+              <span class="t">BiMODiffusion: Physics-aware unsupervised cyclic diffusion for bidirectional virtual
+                fluorescence and phase reconstruction from single-modality imaging</span>
+              <span class="a"><b>S. Park</b>, J. Lee, J. Park, I. Moon</span>
+              <span class="v"><i>IEEE Transactions on Multimedia</i><span class="badge status">under review</span><span
+                  class="badge">IF 9.9 · Q1 top 2%</span></span>
+            </li>
+            <li>
+              <span class="t">AI-driven dual-mode phase and label-free fluorescence imaging platform using a single-shot
+                Gabor hologram</span>
+              <span class="a"><b>S. Park</b>, J. Lee, J. Park, I. Moon</span>
+              <span class="v"><i>Microsystems &amp; Nanoengineering</i><span class="badge status">in press,
+                  2026</span><span class="badge">IF 11.1 · Q1 rank 1st</span></span>
+            </li>
+          </ol>
+        </div>
+
+        <div class="pubgroup">
+          <h3>Peer-Reviewed Journal Articles</h3>
+          <ol class="pubs">
+            <li>
+              <span class="t">A photon-limited federated learning framework for privacy-aware image
+                classification</span>
+              <span class="a"><b>S. Park</b>, O. Jeong, I. Moon</span>
+              <span class="v"><i>Information Sciences</i>, 123111 (2026)<span class="badge">IF 6.8 · Q1 top
+                  7.9%</span></span>
+            </li>
+            <li>
+              <span class="t">Simple and practical single-shot digital holography based on an unsupervised diffusion
+                model</span>
+              <span class="a"><b>S. Park</b>, J. Park, Y. Kim, I. Moon, B. Javidi</span>
+              <span class="v"><i>Engineering Applications of Artificial Intelligence</i>, 163, 112970 (2026)<span
+                  class="badge">IF 8.0 · Q1 top 2.5%</span></span>
+            </li>
+            <li>
+              <span class="t">Scalable neural cryptanalysis of block ciphers in federated attack environments</span>
+              <span class="a">O. Jeong, <b>S. Park</b>, I. Moon</span>
+              <span class="v"><i>Mathematics</i>, 14(2), 373 (2026)<span class="badge">IF 2.2 · Q1 top 6%</span></span>
+            </li>
+            <li>
+              <span class="t">HoloFluoNet: Live cell imaging intelligence based on fused holography and fluorescence for
+                virtual staining, cell segmentation, classification, and viability analysis</span>
+              <span class="a"><b>S. Park</b>, J. Lee, J. Park, I. Moon</span>
+              <span class="v"><i>Engineering Applications of Artificial Intelligence</i>, 161, 112323 (2025)<span
+                  class="badge">IF 8.0 · Q1 top 2.5%</span></span>
+            </li>
+            <li>
+              <span class="t">A holographic sensor-integrated deep learning framework for noninvasive assessment of
+                stored red blood cell quality</span>
+              <span class="a"><b>S. Park</b>, H. An, A. Rehman, I. Moon</span>
+              <span class="v"><i>Advanced Sensor Research</i>, 4(12), e00073 (2025)<span class="badge">IF
+                  5.0</span></span>
+            </li>
+            <li>
+              <span class="t">Automated phenotypic analysis and classification of drug-treated cardiomyocytes via
+                synergized time-lapse holographic imaging and deep learning</span>
+              <span class="a">E. Ahmadzadeh, <b>S. Park</b>, Y. Kim, I. Moon</span>
+              <span class="v"><i>Computer Methods and Programs in Biomedicine</i>, 269, 108890 (2025)<span
+                  class="badge">IF 4.9 · Q1 top 13.5%</span></span>
+            </li>
+            <li>
+              <span class="t">Quantitative analysis of the dexamethasone side effect on human-derived young and aged
+                skeletal muscle by myotube and nuclei segmentation using deep learning</span>
+              <span class="a"><b>S. Park</b>, M. Y. Kim, J. Jeong, S. Yang, M. S. Kim, I. Moon</span>
+              <span class="v"><i>Bioinformatics</i>, 41(1), btae658 (2025)<span class="badge">IF 5.4 · Q1 top
+                  9.8%</span></span>
+            </li>
+            <li>
+              <span class="t">Automated phase reconstruction and super-resolution with deep learning in digital
+                holography</span>
+              <span class="a"><b>S. Park</b>, Y. Kim, I. Moon</span>
+              <span class="v"><i>Optics &amp; Laser Technology</i>, 176, 111030 (2024)<span class="badge">IF 5.0 · Q1
+                  top 17.5%</span></span>
+            </li>
+            <li>
+              <span class="t">Automated classification of elliptical cancer cells with stain-free holographic imaging
+                and self-supervised learning</span>
+              <span class="a">A. Rehman, H. An, <b>S. Park</b>, I. Moon</span>
+              <span class="v"><i>Optics &amp; Laser Technology</i>, 174, 110646 (2024)<span class="badge">IF 5.0 · Q1
+                  top 17.5%</span></span>
+            </li>
+            <li>
+              <span class="t">Fast automated quantitative phase reconstruction in digital holography with unsupervised
+                deep learning</span>
+              <span class="a"><b>S. Park</b>, Y. Kim, I. Moon</span>
+              <span class="v"><i>Optics and Lasers in Engineering</i>, 167, 107624 (2023)<span class="badge">IF 5.6 · Q1
+                  top 17.3%</span></span>
+            </li>
+            <li>
+              <span class="t">Automated classical cipher emulation attacks via unified unsupervised generative
+                adversarial networks</span>
+              <span class="a"><b>S. Park</b>, H. Kim, I. Moon</span>
+              <span class="v"><i>Cryptography</i>, 7(3), 35 (2023)<span class="badge">IF 1.6 · Q2</span></span>
+            </li>
+            <li>
+              <span class="t">Automated stain-free holographic image-based phenotypic classification of elliptical
+                cancer cells</span>
+              <span class="a">K. Jaferzadeh, S. Son, A. Rehman, <b>S. Park</b>, I. Moon</span>
+              <span class="v"><i>Advanced Photonics Research</i>, 4(1), 2200043 (2023)<span class="badge">IF 3.7 ·
+                  Q2</span></span>
+            </li>
+            <li>
+              <span class="t">Automated analysis of human cardiomyocyte dynamics with holographic image-based tracking
+                for cardiotoxicity screening</span>
+              <span class="a">E. Ahmadzadeh, K. Jaferzadeh, <b>S. Park</b>, S. Son, I. Moon</span>
+              <span class="v"><i>Biosensors and Bioelectronics</i>, 195, 113570 (2022)<span class="badge">IF 12.6 · Q1
+                  top 2.8%</span></span>
+            </li>
+            <li>
+              <span class="t">Deep learning-based phenotypic assessment of red cell storage lesions for safe
+                transfusions</span>
+              <span class="a">E. Kim, <b>S. Park</b>, S. Hwang, I. Moon, B. Javidi</span>
+              <span class="v"><i>IEEE Journal of Biomedical and Health Informatics</i>, 26(3), 1318–1328 (2022)<span
+                  class="badge">IF 7.0 · Q1 top 6.2%</span></span>
+            </li>
+            <li>
+              <span class="t">Automated phase unwrapping in digital holography with deep learning</span>
+              <span class="a"><b>S. Park</b>, Y. Kim, I. Moon</span>
+              <span class="v"><i>Biomedical Optics Express</i>, 12(11), 7064–7081 (2021)<span class="badge">IF 3.9 · Q1
+                  top 17%</span></span>
+            </li>
+            <li>
+              <span class="t">High-throughput label-free cell detection and counting from diffraction patterns with deep
+                fully convolutional neural networks</span>
+              <span class="a">F. Yi, <b>S. Park</b>, I. Moon</span>
+              <span class="v"><i>Journal of Biomedical Optics</i>, 26(3), 036001 (2021)<span class="badge">IF 2.7 ·
+                  Q2</span></span>
+            </li>
+          </ol>
+        </div>
+
+        <details class="more">
+          <summary>Conference papers and abstracts (9)</summary>
+          <ol class="pubs" style="margin-top:12px">
+            <li>
+              <span class="t">Cycle-consistent diffusion modeling for bidirectional cryptanalysis of double random phase
+                encoding in federated settings</span>
+              <span class="a">T. Bui, <b>S. Park</b>, L. El Zahar, I. Moon</span>
+              <span class="v"><i>Proc. SPIE 14033, Three-Dimensional Imaging, Visualization, and Display</i>
+                (2026)</span>
+            </li>
+            <li>
+              <span class="t">A lightweight self-supervised deep learning framework for automated detection of
+                circulating tumor cells and cancer-associated fibroblasts</span>
+              <span class="a">H. Woo, <b>S. Park</b>, J. Lee, I. Moon, M. S. Kim</span>
+              <span class="v"><i>Cancer Research</i>, 86(7_Suppl), 119 (2026), AACR Annual Meeting</span>
+            </li>
+            <li>
+              <span class="t">Automated photon-counted image reconstruction using GANs</span>
+              <span class="a"><b>S. Park</b>, I. Moon</span>
+              <span class="v">IEEE Int. Conf. on Computation, Big-Data and Engineering, New Taipei, Taiwan (2025)<span
+                  class="badge award">Best Paper</span></span>
+            </li>
+            <li>
+              <span class="t">Deep learning-based predictive models over pseudo random number generators</span>
+              <span class="a">A. D. Martin, O. Jeong, <b>S. Park</b>, I. Moon</span>
+              <span class="v">IEEE Int. Conf. on Computation, Big-Data and Engineering, New Taipei, Taiwan (2025)</span>
+            </li>
+            <li>
+              <span class="t">Generative adversarial network-based cryptanalysis of double random phase encoding
+                schemes</span>
+              <span class="a">L. El Zahar, <b>S. Park</b>, I. Moon</span>
+              <span class="v">IEEE Int. Conf. on Computation, Big-Data and Engineering, New Taipei, Taiwan (2025)</span>
+            </li>
+            <li>
+              <span class="t">Photon-counting imaging with denoising diffusion models</span>
+              <span class="a"><b>S. Park</b>, I. Moon</span>
+              <span class="v"><i>Proc. SPIE</i>, Optics + Photonics, San Diego, CA, USA (2025)</span>
+            </li>
+            <li>
+              <span class="t">Double random phase-encoded image reconstruction based on denoising diffusion
+                models</span>
+              <span class="a">L. El Zahar, <b>S. Park</b>, I. Moon</span>
+              <span class="v"><i>Proc. SPIE</i>, Optics + Photonics, San Diego, CA, USA (2025)</span>
+            </li>
+            <li>
+              <span class="t">Automatic classification of cancer cells using digital holography</span>
+              <span class="a"><b>S. Park</b>, J. Jeong, I. Moon</span>
+              <span class="v">Optica Advanced Photonics Congress, Novel Optical Materials and Applications, NoTu2C.7
+                (2023)</span>
+            </li>
+            <li>
+              <span class="t">Unsupervised GAN-based substitution cipher attack model using imbalanced datasets</span>
+              <span class="a"><b>S. Park</b>, I. Moon</span>
+              <span class="v">Korea Computer Congress (KIISE), 882–884 (2022), in Korean</span>
+            </li>
+          </ol>
+        </details>
       </div>
+    </section>
 
-      <div class="card">
-        <div class="kicker">Scale and constraint</div>
-        <h3>Learning when measurements are scarce or cannot be shared</h3>
-        <p>Label-free acquisition is cheap enough to generate single-cell corpora at the scale generative models need. I also study the opposite regime: what a model can learn when photons are scarce, or when biomedical data cannot leave the site it was collected at, via photon-limited classification and privacy-preserving federated learning.</p>
-        <div class="refs"><em>Information Sciences</em> (2026) · <em>Mathematics</em> (2026) · <em>Cryptography</em> (2023)</div>
+    <section id="patents">
+      <div class="wrap">
+        <h2>Patents &amp; Software</h2>
+        <p style="font-size:.88rem;color:var(--muted)">3 registered patents, 9 pending applications (Republic of Korea
+          and PCT), and 5 registered software copyrights.</p>
+        <ul class="plain">
+          <li><span class="when">Reg. 2025</span><span class="what">Deep learning-based apparatus and method for
+              evaluating red blood cells<small>KR 10-2761648</small></span></li>
+          <li><span class="when">Reg. 2023</span><span class="what">Apparatus and method for cryptanalysis using
+              generative adversarial networks<small>KR 10-2522109</small></span></li>
+          <li><span class="when">Reg. 2023</span><span class="what">Deep learning-based apparatus and method for phase
+              unwrapping of digital holographic phase images<small>KR 10-2512155</small></span></li>
+        </ul>
+        <details class="more">
+          <summary>Pending applications (9)</summary>
+          <ul class="plain" style="margin-top:10px">
+            <li><span class="when">PCT 2026</span><span class="what">Automated cryptanalysis of block and public-key
+                ciphers based on distributed deep learning<small>PCT/KR2026/008776</small></span></li>
+            <li><span class="when">PCT 2025</span><span class="what">Cell analysis system and method based on virtual
+                fluorescence generation<small>PCT/KR2025/004767</small></span></li>
+            <li><span class="when">PCT 2025</span><span class="what">Unsupervised learning-based phase image
+                reconstruction using Gabor holograms<small>PCT/KR2025/004263</small></span></li>
+            <li><span class="when">KR 2026</span><span class="what">Dual-mode image generation and analysis based on a
+                single-shot Gabor hologram<small>10-2026-0127425</small></span></li>
+            <li><span class="when">KR 2026</span><span class="what">Privacy-preserving federated learning using
+                photon-limited images<small>10-2026-0127418</small></span></li>
+            <li><span class="when">KR 2025</span><span class="what">Automated cryptanalysis of block and public-key
+                ciphers based on distributed deep learning<small>10-2025-0139155</small></span></li>
+            <li><span class="when">KR 2024</span><span class="what">Cell analysis system and method based on virtual
+                fluorescence generation<small>10-2024-0157925</small></span></li>
+            <li><span class="when">KR 2024</span><span class="what">Unsupervised learning-based phase image
+                reconstruction using Gabor holograms<small>10-2024-0153232</small></span></li>
+            <li><span class="when">KR 2023</span><span class="what">Drug screening of cardiomyocytes using holographic
+                images<small>10-2023-0140106</small></span></li>
+          </ul>
+        </details>
       </div>
+    </section>
 
+    <section id="awards">
+      <div class="wrap">
+        <h2>Experience</h2>
+        <ul class="plain">
+          <li><span class="when">2021 – 2024</span><span class="what"><strong>Researcher</strong>, Research Center of
+              Robotics and Mechatronics Engineering, DGIST<small>Deep-learning pipelines for holographic and
+                fluorescence cell imaging, and AI-based cryptanalysis, under national research programs.</small></span>
+          </li>
+          <li><span class="when">Spring 2020</span><span class="what"><strong>Teaching Assistant</strong>, Optical
+              Signal Processing, DGIST</span></li>
+        </ul>
+
+        <h3 style="font-size:.88rem;font-weight:700;margin:30px 0 10px">Honors and Awards</h3>
+        <ul class="plain">
+          <li><span class="when">2026</span><span class="what">Founder's Day Excellence Award<small>DGIST</small></span>
+          </li>
+          <li><span class="when">2025</span><span class="what">Best Conference Paper Award<small>ICEIB 2025, New Taipei,
+                Taiwan</small></span></li>
+        </ul>
+
+        <h3 style="font-size:.88rem;font-weight:700;margin:30px 0 10px">Technical Skills</h3>
+        <ul class="plain">
+          <li><span class="when">Programming</span><span class="what">Python, Bash</span></li>
+          <li><span class="when">Deep learning</span><span class="what">PyTorch · diffusion models, flow matching, GANs,
+              transformers, self-/unsupervised learning, federated learning, physics-informed networks, segmentation and
+              classification</span></li>
+          <li><span class="when">Optics</span><span class="what">Digital holography (Gabor, off-axis), quantitative
+              phase imaging, fluorescence and confocal microscopy</span></li>
+          <li><span class="when">Experimental</span><span class="what">Mammalian cell culture, live-cell time-lapse
+              imaging, fluorescence staining, sample preparation and optical bench alignment</span></li>
+          <li><span class="when">Systems</span><span class="what">Linux server administration, multi-GPU training,
+              Git</span></li>
+          <li><span class="when">Languages</span><span class="what">Korean (native), English (professional working
+              proficiency)</span></li>
+        </ul>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="wrap" style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;width:100%">
+      <span>© 2026 Seonghwan Park</span>
+      <span>Last updated: August 2026</span>
     </div>
-  </div>
-</section>
-<section id="education">
-  <div class="wrap">
-    <h2>Education</h2>
-    <ul class="plain">
-      <li><span class="when">2019 – present</span><span class="what"><strong>Ph.D., Robotics and Mechatronics Engineering</strong>, DGIST<small>Integrated M.S./Ph.D. program · Advisor: Prof. Inkyu Moon, Intelligent Imaging and Vision Systems Laboratory · expected Feb. 2027<br>Dissertation: <i>AI-Driven Intelligent Digital Holographic Microscopy for Automated Phase Reconstruction and Label-Free Quantitative Cellular Analysis</i></small></span></li>
-      <li><span class="when">2014 – 2019</span><span class="what"><strong>B.S., School of Undergraduate Studies</strong>, DGIST</span></li>
-    </ul>
-  </div>
-</section>
-
-<section id="publications">
-  <div class="wrap">
-    <h2>Publications</h2>
-    <p style="font-size:.88rem;color:var(--muted)">19 journal articles (11 as first author), 8 international conference papers. Impact factors are from the 2025 Journal Citation Reports. Full list on <a href="https://scholar.google.co.kr/citations?user=fcOVaYoAAAAJ" target="_blank" rel="noopener">Google Scholar</a>.</p>
-
-    <div class="pubgroup">
-      <h3>Under Review / In Press</h3>
-      <ol class="pubs">
-        <li>
-          <span class="t">Single-shot physics-informed multimodal reconstruction of quantitative phase and virtual 3D confocal fluorescence from a Gabor hologram</span>
-          <span class="a"><b>S. Park</b>, S. Moon, J. Park, B. Javidi, I. Moon</span>
-          <span class="v"><i>Laser &amp; Photonics Reviews</i><span class="badge status">under review</span><span class="badge">IF 9.7 · Q1 top 8.1%</span></span>
-        </li>
-        <li>
-          <span class="t">BiMODiffusion: Physics-aware unsupervised cyclic diffusion for bidirectional virtual fluorescence and phase reconstruction from single-modality imaging</span>
-          <span class="a"><b>S. Park</b>, J. Lee, J. Park, I. Moon</span>
-          <span class="v"><i>IEEE Transactions on Multimedia</i><span class="badge status">under review</span><span class="badge">IF 9.9 · Q1 top 2%</span></span>
-        </li>
-        <li>
-          <span class="t">AI-driven dual-mode phase and label-free fluorescence imaging platform using a single-shot Gabor hologram</span>
-          <span class="a"><b>S. Park</b>, J. Lee, J. Park, I. Moon</span>
-          <span class="v"><i>Microsystems &amp; Nanoengineering</i><span class="badge status">in press, 2026</span><span class="badge">IF 11.1 · Q1 rank 1st</span></span>
-        </li>
-      </ol>
-    </div>
-
-    <div class="pubgroup">
-      <h3>Peer-Reviewed Journal Articles</h3>
-      <ol class="pubs">
-        <li>
-          <span class="t">A photon-limited federated learning framework for privacy-aware image classification</span>
-          <span class="a"><b>S. Park</b>, O. Jeong, I. Moon</span>
-          <span class="v"><i>Information Sciences</i>, 123111 (2026)<span class="badge">IF 6.8 · Q1 top 7.9%</span></span>
-        </li>
-        <li>
-          <span class="t">Simple and practical single-shot digital holography based on an unsupervised diffusion model</span>
-          <span class="a"><b>S. Park</b>, J. Park, Y. Kim, I. Moon, B. Javidi</span>
-          <span class="v"><i>Engineering Applications of Artificial Intelligence</i>, 163, 112970 (2026)<span class="badge">IF 8.0 · Q1 top 2.5%</span></span>
-        </li>
-        <li>
-          <span class="t">Scalable neural cryptanalysis of block ciphers in federated attack environments</span>
-          <span class="a">O. Jeong, <b>S. Park</b>, I. Moon</span>
-          <span class="v"><i>Mathematics</i>, 14(2), 373 (2026)<span class="badge">IF 2.2 · Q1 top 6%</span></span>
-        </li>
-        <li>
-          <span class="t">HoloFluoNet: Live cell imaging intelligence based on fused holography and fluorescence for virtual staining, cell segmentation, classification, and viability analysis</span>
-          <span class="a"><b>S. Park</b>, J. Lee, J. Park, I. Moon</span>
-          <span class="v"><i>Engineering Applications of Artificial Intelligence</i>, 161, 112323 (2025)<span class="badge">IF 8.0 · Q1 top 2.5%</span></span>
-        </li>
-        <li>
-          <span class="t">A holographic sensor-integrated deep learning framework for noninvasive assessment of stored red blood cell quality</span>
-          <span class="a"><b>S. Park</b>, H. An, A. Rehman, I. Moon</span>
-          <span class="v"><i>Advanced Sensor Research</i>, 4(12), e00073 (2025)<span class="badge">IF 5.0</span></span>
-        </li>
-        <li>
-          <span class="t">Automated phenotypic analysis and classification of drug-treated cardiomyocytes via synergized time-lapse holographic imaging and deep learning</span>
-          <span class="a">E. Ahmadzadeh, <b>S. Park</b>, Y. Kim, I. Moon</span>
-          <span class="v"><i>Computer Methods and Programs in Biomedicine</i>, 269, 108890 (2025)<span class="badge">IF 4.9 · Q1 top 13.5%</span></span>
-        </li>
-        <li>
-          <span class="t">Quantitative analysis of the dexamethasone side effect on human-derived young and aged skeletal muscle by myotube and nuclei segmentation using deep learning</span>
-          <span class="a"><b>S. Park</b>, M. Y. Kim, J. Jeong, S. Yang, M. S. Kim, I. Moon</span>
-          <span class="v"><i>Bioinformatics</i>, 41(1), btae658 (2025)<span class="badge">IF 5.4 · Q1 top 9.8%</span></span>
-        </li>
-        <li>
-          <span class="t">Automated phase reconstruction and super-resolution with deep learning in digital holography</span>
-          <span class="a"><b>S. Park</b>, Y. Kim, I. Moon</span>
-          <span class="v"><i>Optics &amp; Laser Technology</i>, 176, 111030 (2024)<span class="badge">IF 5.0 · Q1 top 17.5%</span></span>
-        </li>
-        <li>
-          <span class="t">Automated classification of elliptical cancer cells with stain-free holographic imaging and self-supervised learning</span>
-          <span class="a">A. Rehman, H. An, <b>S. Park</b>, I. Moon</span>
-          <span class="v"><i>Optics &amp; Laser Technology</i>, 174, 110646 (2024)<span class="badge">IF 5.0 · Q1 top 17.5%</span></span>
-        </li>
-        <li>
-          <span class="t">Fast automated quantitative phase reconstruction in digital holography with unsupervised deep learning</span>
-          <span class="a"><b>S. Park</b>, Y. Kim, I. Moon</span>
-          <span class="v"><i>Optics and Lasers in Engineering</i>, 167, 107624 (2023)<span class="badge">IF 5.6 · Q1 top 17.3%</span></span>
-        </li>
-        <li>
-          <span class="t">Automated classical cipher emulation attacks via unified unsupervised generative adversarial networks</span>
-          <span class="a"><b>S. Park</b>, H. Kim, I. Moon</span>
-          <span class="v"><i>Cryptography</i>, 7(3), 35 (2023)<span class="badge">IF 1.6 · Q2</span></span>
-        </li>
-        <li>
-          <span class="t">Automated stain-free holographic image-based phenotypic classification of elliptical cancer cells</span>
-          <span class="a">K. Jaferzadeh, S. Son, A. Rehman, <b>S. Park</b>, I. Moon</span>
-          <span class="v"><i>Advanced Photonics Research</i>, 4(1), 2200043 (2023)<span class="badge">IF 3.7 · Q2</span></span>
-        </li>
-        <li>
-          <span class="t">Automated analysis of human cardiomyocyte dynamics with holographic image-based tracking for cardiotoxicity screening</span>
-          <span class="a">E. Ahmadzadeh, K. Jaferzadeh, <b>S. Park</b>, S. Son, I. Moon</span>
-          <span class="v"><i>Biosensors and Bioelectronics</i>, 195, 113570 (2022)<span class="badge">IF 12.6 · Q1 top 2.8%</span></span>
-        </li>
-        <li>
-          <span class="t">Deep learning-based phenotypic assessment of red cell storage lesions for safe transfusions</span>
-          <span class="a">E. Kim, <b>S. Park</b>, S. Hwang, I. Moon, B. Javidi</span>
-          <span class="v"><i>IEEE Journal of Biomedical and Health Informatics</i>, 26(3), 1318–1328 (2022)<span class="badge">IF 7.0 · Q1 top 6.2%</span></span>
-        </li>
-        <li>
-          <span class="t">Automated phase unwrapping in digital holography with deep learning</span>
-          <span class="a"><b>S. Park</b>, Y. Kim, I. Moon</span>
-          <span class="v"><i>Biomedical Optics Express</i>, 12(11), 7064–7081 (2021)<span class="badge">IF 3.9 · Q1 top 17%</span></span>
-        </li>
-        <li>
-          <span class="t">High-throughput label-free cell detection and counting from diffraction patterns with deep fully convolutional neural networks</span>
-          <span class="a">F. Yi, <b>S. Park</b>, I. Moon</span>
-          <span class="v"><i>Journal of Biomedical Optics</i>, 26(3), 036001 (2021)<span class="badge">IF 2.7 · Q2</span></span>
-        </li>
-      </ol>
-    </div>
-
-    <details class="more">
-      <summary>Conference papers and abstracts (9)</summary>
-      <ol class="pubs" style="margin-top:12px">
-        <li>
-          <span class="t">Cycle-consistent diffusion modeling for bidirectional cryptanalysis of double random phase encoding in federated settings</span>
-          <span class="a">T. Bui, <b>S. Park</b>, L. El Zahar, I. Moon</span>
-          <span class="v"><i>Proc. SPIE 14033, Three-Dimensional Imaging, Visualization, and Display</i> (2026)</span>
-        </li>
-        <li>
-          <span class="t">A lightweight self-supervised deep learning framework for automated detection of circulating tumor cells and cancer-associated fibroblasts</span>
-          <span class="a">H. Woo, <b>S. Park</b>, J. Lee, I. Moon, M. S. Kim</span>
-          <span class="v"><i>Cancer Research</i>, 86(7_Suppl), 119 (2026), AACR Annual Meeting</span>
-        </li>
-        <li>
-          <span class="t">Automated photon-counted image reconstruction using GANs</span>
-          <span class="a"><b>S. Park</b>, I. Moon</span>
-          <span class="v">IEEE Int. Conf. on Computation, Big-Data and Engineering, New Taipei, Taiwan (2025)<span class="badge award">Best Paper</span></span>
-        </li>
-        <li>
-          <span class="t">Deep learning-based predictive models over pseudo random number generators</span>
-          <span class="a">A. D. Martin, O. Jeong, <b>S. Park</b>, I. Moon</span>
-          <span class="v">IEEE Int. Conf. on Computation, Big-Data and Engineering, New Taipei, Taiwan (2025)</span>
-        </li>
-        <li>
-          <span class="t">Generative adversarial network-based cryptanalysis of double random phase encoding schemes</span>
-          <span class="a">L. El Zahar, <b>S. Park</b>, I. Moon</span>
-          <span class="v">IEEE Int. Conf. on Computation, Big-Data and Engineering, New Taipei, Taiwan (2025)</span>
-        </li>
-        <li>
-          <span class="t">Photon-counting imaging with denoising diffusion models</span>
-          <span class="a"><b>S. Park</b>, I. Moon</span>
-          <span class="v"><i>Proc. SPIE</i>, Optics + Photonics, San Diego, CA, USA (2025)</span>
-        </li>
-        <li>
-          <span class="t">Double random phase-encoded image reconstruction based on denoising diffusion models</span>
-          <span class="a">L. El Zahar, <b>S. Park</b>, I. Moon</span>
-          <span class="v"><i>Proc. SPIE</i>, Optics + Photonics, San Diego, CA, USA (2025)</span>
-        </li>
-        <li>
-          <span class="t">Automatic classification of cancer cells using digital holography</span>
-          <span class="a"><b>S. Park</b>, J. Jeong, I. Moon</span>
-          <span class="v">Optica Advanced Photonics Congress, Novel Optical Materials and Applications, NoTu2C.7 (2023)</span>
-        </li>
-        <li>
-          <span class="t">Unsupervised GAN-based substitution cipher attack model using imbalanced datasets</span>
-          <span class="a"><b>S. Park</b>, I. Moon</span>
-          <span class="v">Korea Computer Congress (KIISE), 882–884 (2022), in Korean</span>
-        </li>
-      </ol>
-    </details>
-  </div>
-</section>
-
-<section id="patents">
-  <div class="wrap">
-    <h2>Patents &amp; Software</h2>
-    <p style="font-size:.88rem;color:var(--muted)">3 registered patents, 9 pending applications (Republic of Korea and PCT), and 5 registered software copyrights.</p>
-    <ul class="plain">
-      <li><span class="when">Reg. 2025</span><span class="what">Deep learning-based apparatus and method for evaluating red blood cells<small>KR 10-2761648</small></span></li>
-      <li><span class="when">Reg. 2023</span><span class="what">Apparatus and method for cryptanalysis using generative adversarial networks<small>KR 10-2522109</small></span></li>
-      <li><span class="when">Reg. 2023</span><span class="what">Deep learning-based apparatus and method for phase unwrapping of digital holographic phase images<small>KR 10-2512155</small></span></li>
-    </ul>
-    <details class="more">
-      <summary>Pending applications (9)</summary>
-      <ul class="plain" style="margin-top:10px">
-        <li><span class="when">PCT 2026</span><span class="what">Automated cryptanalysis of block and public-key ciphers based on distributed deep learning<small>PCT/KR2026/008776</small></span></li>
-        <li><span class="when">PCT 2025</span><span class="what">Cell analysis system and method based on virtual fluorescence generation<small>PCT/KR2025/004767</small></span></li>
-        <li><span class="when">PCT 2025</span><span class="what">Unsupervised learning-based phase image reconstruction using Gabor holograms<small>PCT/KR2025/004263</small></span></li>
-        <li><span class="when">KR 2026</span><span class="what">Dual-mode image generation and analysis based on a single-shot Gabor hologram<small>10-2026-0127425</small></span></li>
-        <li><span class="when">KR 2026</span><span class="what">Privacy-preserving federated learning using photon-limited images<small>10-2026-0127418</small></span></li>
-        <li><span class="when">KR 2025</span><span class="what">Automated cryptanalysis of block and public-key ciphers based on distributed deep learning<small>10-2025-0139155</small></span></li>
-        <li><span class="when">KR 2024</span><span class="what">Cell analysis system and method based on virtual fluorescence generation<small>10-2024-0157925</small></span></li>
-        <li><span class="when">KR 2024</span><span class="what">Unsupervised learning-based phase image reconstruction using Gabor holograms<small>10-2024-0153232</small></span></li>
-        <li><span class="when">KR 2023</span><span class="what">Drug screening of cardiomyocytes using holographic images<small>10-2023-0140106</small></span></li>
-      </ul>
-    </details>
-  </div>
-</section>
-
-<section id="awards">
-  <div class="wrap">
-    <h2>Experience</h2>
-    <ul class="plain">
-      <li><span class="when">2021 – 2024</span><span class="what"><strong>Researcher</strong>, Research Center of Robotics and Mechatronics Engineering, DGIST<small>Deep-learning pipelines for holographic and fluorescence cell imaging, and AI-based cryptanalysis, under national research programs.</small></span></li>
-      <li><span class="when">Spring 2020</span><span class="what"><strong>Teaching Assistant</strong>, Optical Signal Processing, DGIST</span></li>
-    </ul>
-
-    <h3 style="font-size:.88rem;font-weight:700;margin:30px 0 10px">Honors and Awards</h3>
-    <ul class="plain">
-      <li><span class="when">2026</span><span class="what">Founder's Day Excellence Award<small>DGIST</small></span></li>
-      <li><span class="when">2025</span><span class="what">Best Conference Paper Award<small>ICEIB 2025, New Taipei, Taiwan</small></span></li>
-    </ul>
-
-    <h3 style="font-size:.88rem;font-weight:700;margin:30px 0 10px">Technical Skills</h3>
-    <ul class="plain">
-      <li><span class="when">Programming</span><span class="what">Python, Bash</span></li>
-      <li><span class="when">Deep learning</span><span class="what">PyTorch · diffusion models, flow matching, GANs, transformers, self-/unsupervised learning, federated learning, physics-informed networks, segmentation and classification</span></li>
-      <li><span class="when">Optics</span><span class="what">Digital holography (Gabor, off-axis), quantitative phase imaging, fluorescence and confocal microscopy</span></li>
-      <li><span class="when">Experimental</span><span class="what">Mammalian cell culture, live-cell time-lapse imaging, fluorescence staining, sample preparation and optical bench alignment</span></li>
-      <li><span class="when">Systems</span><span class="what">Linux server administration, multi-GPU training, Git</span></li>
-      <li><span class="when">Languages</span><span class="what">Korean (native), English (professional working proficiency)</span></li>
-    </ul>
-  </div>
-</section>
-
-</main>
-
-<footer>
-  <div class="wrap" style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;width:100%">
-    <span>© 2026 Seonghwan Park</span>
-    <span>Last updated: August 2026</span>
-  </div>
-</footer>
+  </footer>
 
 </body>
+
 </html>
