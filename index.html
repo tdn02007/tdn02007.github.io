@@ -4,12 +4,12 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Seonghwan Park</title>
-<meta name="description" content="Seonghwan Park — Ph.D. candidate at DGIST working on AI-driven computational bioimaging: physics-informed generative models for digital holography, quantitative phase imaging, and virtual fluorescence.">
+<meta name="description" content="Seonghwan Park, Ph.D. candidate at DGIST. Generative models (diffusion, flow matching) for cross-modal prediction between label-free images and fluorescence readouts of single cells; label-free single-cell phenotyping and perturbation-response prediction.">
 <meta name="author" content="Seonghwan Park">
 
 <!-- Social preview -->
 <meta property="og:title" content="Seonghwan Park">
-<meta property="og:description" content="AI-driven computational bioimaging — physics-informed generative models for digital holography and label-free cell analysis.">
+<meta property="og:description" content="Generative models for cross-modal single-cell imaging: label-free phenotyping and perturbation-response prediction.">
 <meta property="og:type" content="website">
 
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔬</text></svg>">
@@ -197,11 +197,11 @@ footer{
 <nav>
   <div class="wrap">
     <a class="brand" href="#top">Seonghwan Park</a>
-    <a href="#about">About</a>
     <a href="#research">Research</a>
+    <a href="#education">Education</a>
     <a href="#publications">Publications</a>
     <a href="#patents">Patents</a>
-    <a href="#awards">Awards</a>
+    <a href="#awards">Experience</a>
   </div>
 </nav>
 
@@ -213,8 +213,8 @@ footer{
     <div class="photo">Add<br>assets/photo.jpg</div>
     <div class="hero-text">
       <h1>Seonghwan Park</h1>
-      <p class="role">Ph.D. Candidate · Intelligent Imaging and Vision Systems Lab</p>
-      <p class="affil">Department of Robotics and Mechatronics Engineering, DGIST, Daegu, South Korea</p>
+      <p class="role">Generative models for cross-modal single-cell imaging</p>
+      <p class="affil">Ph.D. Candidate, Intelligent Imaging and Vision Systems Lab · Dept. of Robotics and Mechatronics Engineering, DGIST, Daegu, South Korea</p>
       <div class="links">
         <a class="primary" href="assets/CV_Seonghwan_Park.pdf">Curriculum Vitae</a>
         <a href="mailto:tdn02007@dgist.ac.kr">Email</a>
@@ -229,59 +229,63 @@ footer{
 
 <main>
 
-<section id="about">
-  <div class="wrap">
-    <h2>About</h2>
-    <p>I build <strong>AI-driven computational bioimaging systems</strong> that turn simple, low-cost optical hardware into quantitative, multimodal readouts of living cells. I am a Ph.D. candidate at DGIST, advised by Prof. Inkyu Moon in the Intelligent Imaging and Vision Systems Laboratory, and I expect to defend in February 2027.</p>
-    <p>The core of my work is <strong>physics-informed generative modeling</strong> — diffusion models and GANs constrained by the underlying wave-propagation physics — applied to the ill-posed inverse problems of digital holography. This lets a single, unlabeled measurement from an inexpensive lensless setup yield what normally takes an interferometer, a fluorescence microscope, and a stain: quantitative phase, virtual 3D fluorescence, segmentation, and cell-level phenotype in one shot.</p>
-    <p>I am currently looking for <strong>postdoctoral positions</strong> at the intersection of computational imaging, machine learning, and biomedical optics.</p>
-    <div class="tags">
-      <span class="tag">Computational imaging</span>
-      <span class="tag">Digital holography</span>
-      <span class="tag">Quantitative phase imaging</span>
-      <span class="tag">Diffusion models</span>
-      <span class="tag">Virtual fluorescence</span>
-      <span class="tag">Self-supervised learning</span>
-      <span class="tag">Photon-limited imaging</span>
-      <span class="tag">Federated learning</span>
-    </div>
-  </div>
-</section>
-
 <section id="research">
   <div class="wrap">
-    <h2>Research Highlights</h2>
+    <h2>Research</h2>
+    <p>I develop generative models (diffusion, flow matching, and adversarial) that learn <strong>cross-modal maps between label-free images and fluorescence readouts of single cells</strong> from unpaired or weakly paired data, using physics-informed inductive biases, toward scalable single-cell phenotyping and perturbation-response prediction.</p>
+    <p style="font-size:.92rem;color:var(--muted)"><strong style="color:var(--text)">Experimental platform:</strong> custom high-throughput quantitative phase (digital holographic) microscopy, so I generate the single-cell imaging data I model. Ph.D. candidate at DGIST with Prof. Inkyu Moon; <strong style="color:var(--text)">seeking postdoctoral positions in machine learning for biology.</strong></p>
+    <div class="tags">
+      <span class="tag">Cross-modal generative modeling</span>
+      <span class="tag">Flow matching</span>
+      <span class="tag">Diffusion models</span>
+      <span class="tag">Multimodal alignment</span>
+      <span class="tag">Self- and unsupervised learning</span>
+      <span class="tag">Label-free single-cell phenotyping</span>
+      <span class="tag">Image-based morphological profiling</span>
+      <span class="tag">Perturbation response prediction</span>
+    </div>
+
+    <h3 style="font-size:.88rem;font-weight:700;margin:30px 0 14px">Selected directions</h3>
     <div class="cards">
 
       <div class="card">
-        <div class="kicker">Dual-mode imaging</div>
-        <h3>Phase and label-free fluorescence from one hologram</h3>
-        <p>A single-shot Gabor hologram carries enough information to recover both quantitative phase and virtual three-dimensional confocal fluorescence — no staining, no scanning, no second optical path. Physics-informed constraints keep the generated fluorescence anchored to the measured field rather than hallucinated.</p>
-        <div class="refs"><em>Microsystems &amp; Nanoengineering</em> (in press, 2026) · <em>Laser &amp; Photonics Reviews</em> (under review)</div>
+        <div class="kicker">Cross-modal generation</div>
+        <h3>Predicting stained readouts from label-free images</h3>
+        <p>A single label-free measurement carries enough information to predict what a stain would have shown. I train generative models that map label-free cell images to fluorescence readouts, including virtual three-dimensional confocal fluorescence, so that molecular-scale contrast is recovered without staining, scanning, or a second optical path.</p>
+        <div class="refs"><em>Microsystems &amp; Nanoengineering</em> (in press, 2026) · <em>Laser &amp; Photonics Reviews</em> (under review) · <em>Eng. Appl. Artif. Intell.</em> (2025)</div>
       </div>
 
       <div class="card">
-        <div class="kicker">Unsupervised reconstruction</div>
-        <h3>Holographic phase recovery without ground truth</h3>
-        <p>Paired training data is the bottleneck in learned holography. I use unsupervised and cyclic diffusion formulations that learn phase reconstruction, phase unwrapping, and super-resolution directly from unpaired holograms, making the method portable to new samples and new optical setups.</p>
-        <div class="refs"><em>Eng. Appl. Artif. Intell.</em> (2026) · <em>Opt. Lasers Eng.</em> (2023) · <em>Biomed. Opt. Express</em> (2021)</div>
+        <div class="kicker">Learning without paired data</div>
+        <h3>Unpaired and weakly paired distribution translation</h3>
+        <p>Paired ground truth is the bottleneck in cross-modal biological imaging, because the two modalities usually cannot be measured on the same cell at the same instant. I use unsupervised and cyclic diffusion formulations that learn the mapping from unpaired populations, which makes the models portable across samples, instruments, and acquisition setups.</p>
+        <div class="refs"><em>IEEE Trans. Multimedia</em> (under review) · <em>Eng. Appl. Artif. Intell.</em> (2026) · <em>Opt. Lasers Eng.</em> (2023) · <em>Biomed. Opt. Express</em> (2021)</div>
       </div>
 
       <div class="card">
-        <div class="kicker">Biomedical readouts</div>
-        <h3>From pixels to cell-level decisions</h3>
-        <p>Turning reconstructed images into clinically meaningful numbers: noninvasive grading of stored red blood cell quality, stain-free classification of cancer cells and circulating tumor cells, cardiomyocyte drug-response and cardiotoxicity screening, and myotube phenotyping in aged skeletal muscle.</p>
-        <div class="refs"><em>Biosens. Bioelectron.</em> (2022) · <em>IEEE J. Biomed. Health Inform.</em> (2022) · <em>Bioinformatics</em> (2025) · <em>Adv. Sensor Res.</em> (2025)</div>
+        <div class="kicker">Phenotyping &amp; perturbation</div>
+        <h3>From single-cell morphology to biological readouts</h3>
+        <p>Image-based morphological profiling that resolves biologically meaningful state: drug-response and cardiotoxicity phenotypes in treated cardiomyocytes, dexamethasone effects on young versus aged skeletal muscle, storage lesion grading in stored red blood cells, and stain-free classification of cancer cells and circulating tumor cells.</p>
+        <div class="refs"><em>Biosens. Bioelectron.</em> (2022) · <em>IEEE J. Biomed. Health Inform.</em> (2022) · <em>Bioinformatics</em> (2025) · <em>Comput. Methods Programs Biomed.</em> (2025) · <em>Adv. Sensor Res.</em> (2025)</div>
       </div>
 
       <div class="card">
-        <div class="kicker">Learning under constraints</div>
-        <h3>Photon-limited and privacy-preserving vision</h3>
-        <p>What can a model learn when photons are scarce or data cannot leave the site? I study classification from photon-counting images, federated learning that never centralizes raw measurements, and — from the adversarial side — generative attacks on optical and classical cryptosystems.</p>
+        <div class="kicker">Scale and constraint</div>
+        <h3>Learning when measurements are scarce or cannot be shared</h3>
+        <p>Label-free acquisition is cheap enough to generate single-cell corpora at the scale generative models need. I also study the opposite regime: what a model can learn when photons are scarce, or when biomedical data cannot leave the site it was collected at, via photon-limited classification and privacy-preserving federated learning.</p>
         <div class="refs"><em>Information Sciences</em> (2026) · <em>Mathematics</em> (2026) · <em>Cryptography</em> (2023)</div>
       </div>
 
     </div>
+  </div>
+</section>
+<section id="education">
+  <div class="wrap">
+    <h2>Education</h2>
+    <ul class="plain">
+      <li><span class="when">2019 – present</span><span class="what"><strong>Ph.D., Robotics and Mechatronics Engineering</strong>, DGIST<small>Integrated M.S./Ph.D. program · Advisor: Prof. Inkyu Moon, Intelligent Imaging and Vision Systems Laboratory · expected Feb. 2027<br>Dissertation: <i>AI-Driven Intelligent Digital Holographic Microscopy for Automated Phase Reconstruction and Label-Free Quantitative Cellular Analysis</i></small></span></li>
+      <li><span class="when">2014 – 2019</span><span class="what"><strong>B.S., School of Undergraduate Studies</strong>, DGIST</span></li>
+    </ul>
   </div>
 </section>
 
@@ -296,17 +300,17 @@ footer{
         <li>
           <span class="t">Single-shot physics-informed multimodal reconstruction of quantitative phase and virtual 3D confocal fluorescence from a Gabor hologram</span>
           <span class="a"><b>S. Park</b>, S. Moon, J. Park, B. Javidi, I. Moon</span>
-          <span class="v"><i>Laser &amp; Photonics Reviews</i><span class="badge status">under review</span><span class="badge">IF 9.7</span></span>
+          <span class="v"><i>Laser &amp; Photonics Reviews</i><span class="badge status">under review</span><span class="badge">IF 9.7 · Q1 top 8.1%</span></span>
         </li>
         <li>
           <span class="t">BiMODiffusion: Physics-aware unsupervised cyclic diffusion for bidirectional virtual fluorescence and phase reconstruction from single-modality imaging</span>
           <span class="a"><b>S. Park</b>, J. Lee, J. Park, I. Moon</span>
-          <span class="v"><i>IEEE Transactions on Multimedia</i><span class="badge status">under review</span><span class="badge">IF 9.9</span></span>
+          <span class="v"><i>IEEE Transactions on Multimedia</i><span class="badge status">under review</span><span class="badge">IF 9.9 · Q1 top 2%</span></span>
         </li>
         <li>
           <span class="t">AI-driven dual-mode phase and label-free fluorescence imaging platform using a single-shot Gabor hologram</span>
           <span class="a"><b>S. Park</b>, J. Lee, J. Park, I. Moon</span>
-          <span class="v"><i>Microsystems &amp; Nanoengineering</i><span class="badge status">in press, 2026</span><span class="badge">IF 11.1 · rank 1/81</span></span>
+          <span class="v"><i>Microsystems &amp; Nanoengineering</i><span class="badge status">in press, 2026</span><span class="badge">IF 11.1 · Q1 rank 1st</span></span>
         </li>
       </ol>
     </div>
@@ -317,22 +321,22 @@ footer{
         <li>
           <span class="t">A photon-limited federated learning framework for privacy-aware image classification</span>
           <span class="a"><b>S. Park</b>, O. Jeong, I. Moon</span>
-          <span class="v"><i>Information Sciences</i>, 123111 (2026)<span class="badge">IF 6.8</span></span>
+          <span class="v"><i>Information Sciences</i>, 123111 (2026)<span class="badge">IF 6.8 · Q1 top 7.9%</span></span>
         </li>
         <li>
           <span class="t">Simple and practical single-shot digital holography based on an unsupervised diffusion model</span>
           <span class="a"><b>S. Park</b>, J. Park, Y. Kim, I. Moon, B. Javidi</span>
-          <span class="v"><i>Engineering Applications of Artificial Intelligence</i>, 163, 112970 (2026)<span class="badge">IF 9.0</span></span>
+          <span class="v"><i>Engineering Applications of Artificial Intelligence</i>, 163, 112970 (2026)<span class="badge">IF 8.0 · Q1 top 2.5%</span></span>
         </li>
         <li>
           <span class="t">Scalable neural cryptanalysis of block ciphers in federated attack environments</span>
           <span class="a">O. Jeong, <b>S. Park</b>, I. Moon</span>
-          <span class="v"><i>Mathematics</i>, 14(2), 373 (2026)<span class="badge">IF 2.3</span></span>
+          <span class="v"><i>Mathematics</i>, 14(2), 373 (2026)<span class="badge">IF 2.2 · Q1 top 6%</span></span>
         </li>
         <li>
           <span class="t">HoloFluoNet: Live cell imaging intelligence based on fused holography and fluorescence for virtual staining, cell segmentation, classification, and viability analysis</span>
           <span class="a"><b>S. Park</b>, J. Lee, J. Park, I. Moon</span>
-          <span class="v"><i>Engineering Applications of Artificial Intelligence</i>, 161, 112323 (2025)<span class="badge">IF 9.0</span></span>
+          <span class="v"><i>Engineering Applications of Artificial Intelligence</i>, 161, 112323 (2025)<span class="badge">IF 8.0 · Q1 top 2.5%</span></span>
         </li>
         <li>
           <span class="t">A holographic sensor-integrated deep learning framework for noninvasive assessment of stored red blood cell quality</span>
@@ -342,57 +346,57 @@ footer{
         <li>
           <span class="t">Automated phenotypic analysis and classification of drug-treated cardiomyocytes via synergized time-lapse holographic imaging and deep learning</span>
           <span class="a">E. Ahmadzadeh, <b>S. Park</b>, Y. Kim, I. Moon</span>
-          <span class="v"><i>Computer Methods and Programs in Biomedicine</i>, 269, 108890 (2025)<span class="badge">IF 6.4</span></span>
+          <span class="v"><i>Computer Methods and Programs in Biomedicine</i>, 269, 108890 (2025)<span class="badge">IF 4.9 · Q1 top 13.5%</span></span>
         </li>
         <li>
           <span class="t">Quantitative analysis of the dexamethasone side effect on human-derived young and aged skeletal muscle by myotube and nuclei segmentation using deep learning</span>
           <span class="a"><b>S. Park</b>, M. Y. Kim, J. Jeong, S. Yang, M. S. Kim, I. Moon</span>
-          <span class="v"><i>Bioinformatics</i>, 41(1), btae658 (2025)<span class="badge">IF 5.5</span></span>
+          <span class="v"><i>Bioinformatics</i>, 41(1), btae658 (2025)<span class="badge">IF 5.4 · Q1 top 9.8%</span></span>
         </li>
         <li>
           <span class="t">Automated phase reconstruction and super-resolution with deep learning in digital holography</span>
           <span class="a"><b>S. Park</b>, Y. Kim, I. Moon</span>
-          <span class="v"><i>Optics &amp; Laser Technology</i>, 176, 111030 (2024)<span class="badge">IF 5.2</span></span>
+          <span class="v"><i>Optics &amp; Laser Technology</i>, 176, 111030 (2024)<span class="badge">IF 5.0 · Q1 top 17.5%</span></span>
         </li>
         <li>
           <span class="t">Automated classification of elliptical cancer cells with stain-free holographic imaging and self-supervised learning</span>
           <span class="a">A. Rehman, H. An, <b>S. Park</b>, I. Moon</span>
-          <span class="v"><i>Optics &amp; Laser Technology</i>, 174, 110646 (2024)<span class="badge">IF 5.2</span></span>
+          <span class="v"><i>Optics &amp; Laser Technology</i>, 174, 110646 (2024)<span class="badge">IF 5.0 · Q1 top 17.5%</span></span>
         </li>
         <li>
           <span class="t">Fast automated quantitative phase reconstruction in digital holography with unsupervised deep learning</span>
           <span class="a"><b>S. Park</b>, Y. Kim, I. Moon</span>
-          <span class="v"><i>Optics and Lasers in Engineering</i>, 167, 107624 (2023)<span class="badge">IF 4.2</span></span>
+          <span class="v"><i>Optics and Lasers in Engineering</i>, 167, 107624 (2023)<span class="badge">IF 5.6 · Q1 top 17.3%</span></span>
         </li>
         <li>
           <span class="t">Automated classical cipher emulation attacks via unified unsupervised generative adversarial networks</span>
           <span class="a"><b>S. Park</b>, H. Kim, I. Moon</span>
-          <span class="v"><i>Cryptography</i>, 7(3), 35 (2023)<span class="badge">IF 2.4</span></span>
+          <span class="v"><i>Cryptography</i>, 7(3), 35 (2023)<span class="badge">IF 1.6 · Q2</span></span>
         </li>
         <li>
           <span class="t">Automated stain-free holographic image-based phenotypic classification of elliptical cancer cells</span>
           <span class="a">K. Jaferzadeh, S. Son, A. Rehman, <b>S. Park</b>, I. Moon</span>
-          <span class="v"><i>Advanced Photonics Research</i>, 4(1), 2200043 (2023)<span class="badge">IF 4.0</span></span>
+          <span class="v"><i>Advanced Photonics Research</i>, 4(1), 2200043 (2023)<span class="badge">IF 3.7 · Q2</span></span>
         </li>
         <li>
           <span class="t">Automated analysis of human cardiomyocyte dynamics with holographic image-based tracking for cardiotoxicity screening</span>
           <span class="a">E. Ahmadzadeh, K. Jaferzadeh, <b>S. Park</b>, S. Son, I. Moon</span>
-          <span class="v"><i>Biosensors and Bioelectronics</i>, 195, 113570 (2022)<span class="badge">IF 11.8</span></span>
+          <span class="v"><i>Biosensors and Bioelectronics</i>, 195, 113570 (2022)<span class="badge">IF 12.6 · Q1 top 2.8%</span></span>
         </li>
         <li>
           <span class="t">Deep learning-based phenotypic assessment of red cell storage lesions for safe transfusions</span>
           <span class="a">E. Kim, <b>S. Park</b>, S. Hwang, I. Moon, B. Javidi</span>
-          <span class="v"><i>IEEE Journal of Biomedical and Health Informatics</i>, 26(3), 1318–1328 (2022)<span class="badge">IF 7.7</span></span>
+          <span class="v"><i>IEEE Journal of Biomedical and Health Informatics</i>, 26(3), 1318–1328 (2022)<span class="badge">IF 7.0 · Q1 top 6.2%</span></span>
         </li>
         <li>
           <span class="t">Automated phase unwrapping in digital holography with deep learning</span>
           <span class="a"><b>S. Park</b>, Y. Kim, I. Moon</span>
-          <span class="v"><i>Biomedical Optics Express</i>, 12(11), 7064–7081 (2021)<span class="badge">IF 3.2</span></span>
+          <span class="v"><i>Biomedical Optics Express</i>, 12(11), 7064–7081 (2021)<span class="badge">IF 3.9 · Q1 top 17%</span></span>
         </li>
         <li>
           <span class="t">High-throughput label-free cell detection and counting from diffraction patterns with deep fully convolutional neural networks</span>
           <span class="a">F. Yi, <b>S. Park</b>, I. Moon</span>
-          <span class="v"><i>Journal of Biomedical Optics</i>, 26(3), 036001 (2021)<span class="badge">IF 3.3</span></span>
+          <span class="v"><i>Journal of Biomedical Optics</i>, 26(3), 036001 (2021)<span class="badge">IF 2.7 · Q2</span></span>
         </li>
       </ol>
     </div>
@@ -408,7 +412,7 @@ footer{
         <li>
           <span class="t">A lightweight self-supervised deep learning framework for automated detection of circulating tumor cells and cancer-associated fibroblasts</span>
           <span class="a">H. Woo, <b>S. Park</b>, J. Lee, I. Moon, M. S. Kim</span>
-          <span class="v"><i>Cancer Research</i>, 86(7_Suppl), 119 (2026) — AACR Annual Meeting</span>
+          <span class="v"><i>Cancer Research</i>, 86(7_Suppl), 119 (2026), AACR Annual Meeting</span>
         </li>
         <li>
           <span class="t">Automated photon-counted image reconstruction using GANs</span>
@@ -438,12 +442,12 @@ footer{
         <li>
           <span class="t">Automatic classification of cancer cells using digital holography</span>
           <span class="a"><b>S. Park</b>, J. Jeong, I. Moon</span>
-          <span class="v">Optica Advanced Photonics Congress — Novel Optical Materials and Applications, NoTu2C.7 (2023)</span>
+          <span class="v">Optica Advanced Photonics Congress, Novel Optical Materials and Applications, NoTu2C.7 (2023)</span>
         </li>
         <li>
           <span class="t">Unsupervised GAN-based substitution cipher attack model using imbalanced datasets</span>
           <span class="a"><b>S. Park</b>, I. Moon</span>
-          <span class="v">Korea Computer Congress (KIISE), 882–884 (2022) — in Korean</span>
+          <span class="v">Korea Computer Congress (KIISE), 882–884 (2022), in Korean</span>
         </li>
       </ol>
     </details>
@@ -478,29 +482,25 @@ footer{
 
 <section id="awards">
   <div class="wrap">
-    <h2>Awards, Experience &amp; Skills</h2>
+    <h2>Experience</h2>
+    <ul class="plain">
+      <li><span class="when">2021 – 2024</span><span class="what"><strong>Researcher</strong>, Research Center of Robotics and Mechatronics Engineering, DGIST<small>Deep-learning pipelines for holographic and fluorescence cell imaging, and AI-based cryptanalysis, under national research programs.</small></span></li>
+      <li><span class="when">Spring 2020</span><span class="what"><strong>Teaching Assistant</strong>, Optical Signal Processing, DGIST</span></li>
+    </ul>
 
-    <h3 style="font-size:.88rem;font-weight:700;margin:0 0 10px">Honors</h3>
+    <h3 style="font-size:.88rem;font-weight:700;margin:30px 0 10px">Honors and Awards</h3>
     <ul class="plain">
       <li><span class="when">2026</span><span class="what">Founder's Day Excellence Award<small>DGIST</small></span></li>
       <li><span class="when">2025</span><span class="what">Best Conference Paper Award<small>ICEIB 2025, New Taipei, Taiwan</small></span></li>
     </ul>
 
-    <h3 style="font-size:.88rem;font-weight:700;margin:24px 0 10px">Education &amp; Experience</h3>
+    <h3 style="font-size:.88rem;font-weight:700;margin:30px 0 10px">Technical Skills</h3>
     <ul class="plain">
-      <li><span class="when">2019 – 2027</span><span class="what">Ph.D., Robotics and Mechatronics Engineering, DGIST <small>Integrated M.S./Ph.D. · Advisor: Prof. Inkyu Moon · expected Feb. 2027</small></span></li>
-      <li><span class="when">2021 – 2024</span><span class="what">Researcher, Research Center of Robotics and Mechatronics Engineering, DGIST</span></li>
-      <li><span class="when">2020</span><span class="what">Teaching Assistant, Optical Signal Processing, DGIST</span></li>
-      <li><span class="when">2014 – 2019</span><span class="what">B.S., School of Undergraduate Studies, DGIST</span></li>
-    </ul>
-
-    <h3 style="font-size:.88rem;font-weight:700;margin:24px 0 10px">Skills</h3>
-    <ul class="plain">
-      <li><span class="when">Programming</span><span class="what">Python, C/C++, MATLAB, Bash</span></li>
-      <li><span class="when">Deep learning</span><span class="what">PyTorch, TensorFlow, CUDA · diffusion models, GANs, transformers, self-/unsupervised learning, federated learning, physics-informed networks</span></li>
-      <li><span class="when">Optics</span><span class="what">Digital holography (Gabor, off-axis), quantitative phase imaging, fluorescence and confocal microscopy, photon-counting imaging, optical encryption</span></li>
-      <li><span class="when">Experimental</span><span class="what">Mammalian cell culture, live-cell time-lapse imaging, fluorescence staining, optical bench alignment</span></li>
-      <li><span class="when">Systems</span><span class="what">Linux server administration, multi-GPU training, Docker, Git</span></li>
+      <li><span class="when">Programming</span><span class="what">Python, Bash</span></li>
+      <li><span class="when">Deep learning</span><span class="what">PyTorch · diffusion models, flow matching, GANs, transformers, self-/unsupervised learning, federated learning, physics-informed networks, segmentation and classification</span></li>
+      <li><span class="when">Optics</span><span class="what">Digital holography (Gabor, off-axis), quantitative phase imaging, fluorescence and confocal microscopy</span></li>
+      <li><span class="when">Experimental</span><span class="what">Mammalian cell culture, live-cell time-lapse imaging, fluorescence staining, sample preparation and optical bench alignment</span></li>
+      <li><span class="when">Systems</span><span class="what">Linux server administration, multi-GPU training, Git</span></li>
       <li><span class="when">Languages</span><span class="what">Korean (native), English (professional working proficiency)</span></li>
     </ul>
   </div>
