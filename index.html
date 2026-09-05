@@ -6,13 +6,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Seonghwan Park</title>
   <meta name="description"
-    content="Seonghwan Park, Ph.D. candidate at DGIST. Generative models (diffusion, flow matching) for cross-modal prediction between label-free images and fluorescence readouts of single cells; label-free single-cell phenotyping and perturbation-response prediction.">
+    content="Seonghwan Park, Ph.D. candidate at DGIST. Builds integrated holography-AI systems, from custom digital holographic microscopy hardware through generative models to hands-on biological sample analysis, for label-free single-cell imaging and phenotyping.">
   <meta name="author" content="Seonghwan Park">
 
   <!-- Social preview -->
   <meta property="og:title" content="Seonghwan Park">
   <meta property="og:description"
-    content="Generative models for cross-modal single-cell imaging: label-free phenotyping and perturbation-response prediction.">
+    content="Integrated holography, AI, and biological sample analysis for label-free single-cell imaging.">
   <meta property="og:type" content="website">
 
   <link rel="icon"
@@ -536,7 +536,7 @@
       <img class="photo" src="assets/photo.jpg" alt="Seonghwan Park">
       <div class="hero-text">
         <h1>Seonghwan Park</h1>
-        <p class="role">Generative models for cross-modal single-cell imaging</p>
+        <p class="role">AI-driven holographic imaging systems for label-free single-cell biology</p>
         <p class="affil">Ph.D. Candidate, Intelligent Imaging and Vision Systems Lab · Dept. of Robotics and
           Mechatronics Engineering, DGIST, Daegu, South Korea</p>
         <div class="links">
@@ -559,27 +559,34 @@
         <h2>About</h2>
         <p>I am a Ph.D. candidate at DGIST, working with <a
             href="https://scholar.google.com/citations?user=RPYa4cYAAAAJ" target="_blank" rel="noopener">Inkyu Moon</a>
-          in the Intelligent Imaging and Vision Systems Lab on generative models for biological imaging.</p>
-        <p>My research develops diffusion, flow matching, and adversarial models that learn cross-modal maps between
-          label-free images and fluorescence readouts of single cells, mostly from unpaired or weakly paired data. I
-          also build the platform these models are trained on: a custom high-throughput quantitative phase (digital
-          holographic) microscope, so I generate the single-cell imaging data I model.</p>
+          in the Intelligent Imaging and Vision Systems Lab, where I build integrated systems that connect optical
+          hardware, AI, and biological sample analysis into a single pipeline.</p>
+        <p>My work starts at the bench. I design and build a custom single-shot digital holographic microscope, and I
+          run the wet-lab side myself, including mammalian cell culture, live-cell time-lapse imaging, and fluorescence
+          staining, to generate the paired and unpaired single-cell data my models are trained and validated on. On top
+          of that hardware, I develop diffusion, flow-matching, and adversarial models that reconstruct quantitative
+          phase and predict fluorescence readouts, including virtual 3D confocal fluorescence, from a single hologram,
+          closing the loop from raw acquisition to a biologically interpretable image without staining or a second
+          optical path.</p>
+        <p>I apply this integrated imaging-to-insight pipeline to real biological questions: drug-response and
+          cardiotoxicity phenotyping in cardiomyocytes, aging-related effects in skeletal muscle, storage-lesion grading
+          in red blood cells, and label-free classification of cancer and circulating tumor cells. This work sits inside
+          national research programs on AI-based cellular phenotyping platforms and, more recently, a multi-parametric
+          liquid biopsy platform for tumor and tumor-microenvironment diagnostics.</p>
         <p>Before this, I completed my B.S. at DGIST, and from 2021 to 2024 I was a researcher at the DGIST Research
-          Center of Robotics and Mechatronics Engineering.</p>
-        <p>I am interested in problems at the intersection of generative modeling, computational imaging, and cell
-          biology: learning cross-modal maps without paired ground truth, image-based phenotyping, and predicting how
-          cells respond to perturbations. I have also worked on learning under severe measurement constraints, including
-          photon-limited imaging and privacy-preserving federated learning.</p>
-        <p>I am currently seeking postdoctoral positions in AI for biological imaging.</p>
+          Center of Robotics and Mechatronics Engineering, where I also worked on AI-based cryptanalysis and
+          privacy-preserving federated learning, evidence that the modeling toolkit I use for biological imaging
+          generalizes well beyond it.</p>
+        <p>I am currently seeking postdoctoral positions in AI for biological and biomedical imaging.</p>
         <div class="tags">
+          <span class="tag">Digital holographic microscopy</span>
+          <span class="tag">Integrated imaging-AI systems</span>
           <span class="tag">Cross-modal generative modeling</span>
-          <span class="tag">Flow matching</span>
-          <span class="tag">Diffusion models</span>
-          <span class="tag">Multimodal alignment</span>
+          <span class="tag">Diffusion &amp; flow matching</span>
           <span class="tag">Self- and unsupervised learning</span>
           <span class="tag">Label-free single-cell phenotyping</span>
-          <span class="tag">Image-based morphological profiling</span>
-          <span class="tag">Perturbation response prediction</span>
+          <span class="tag">Biological sample preparation &amp; imaging</span>
+          <span class="tag">Perturbation-response prediction</span>
         </div>
       </div>
     </section>
@@ -590,34 +597,36 @@
         <div class="cards">
 
           <div class="card">
-            <div class="kicker">Cross-modal generation</div>
-            <h3>Predicting stained readouts from label-free images</h3>
-            <p>A single label-free measurement carries enough information to predict what a stain would have shown. I
-              train generative models that map label-free cell images to fluorescence readouts, including virtual
-              three-dimensional confocal fluorescence, so that molecular-scale contrast is recovered without staining,
-              scanning, or a second optical path.</p>
+            <div class="kicker">Integrated systems</div>
+            <h3>One hologram, one system: hardware to phenotype</h3>
+            <p>I build the full pipeline rather than a model in isolation. A custom single-shot Gabor holographic
+              microscope, physics-informed reconstruction, and AI inference work together to turn one raw hologram into
+              quantitative phase, virtual 3D confocal fluorescence, and downstream cell analysis, closing the loop from
+              acquisition to biological readout in a single shot.</p>
             <div class="refs"><em>Microsystems &amp; Nanoengineering</em> (in press, 2026) · <em>Laser &amp; Photonics
-                Reviews</em> (under review) · <em>Eng. Appl. Artif. Intell.</em> (2025)</div>
+                Reviews</em> (under review) · <em>Eng. Appl. Artif. Intell.</em> (2025, 2026)</div>
           </div>
 
           <div class="card">
-            <div class="kicker">Learning without paired data</div>
-            <h3>Unpaired and weakly paired distribution translation</h3>
+            <div class="kicker">Cross-modal generation</div>
+            <h3>Learning without paired data</h3>
             <p>Paired ground truth is the bottleneck in cross-modal biological imaging, because the two modalities
               usually cannot be measured on the same cell at the same instant. I use unsupervised and cyclic diffusion
-              formulations that learn the mapping from unpaired populations, which makes the models portable across
-              samples, instruments, and acquisition setups.</p>
-            <div class="refs"><em>IEEE Trans. Multimedia</em> (under review) · <em>Eng. Appl. Artif. Intell.</em> (2026)
-              · <em>Opt. Lasers Eng.</em> (2023) · <em>Biomed. Opt. Express</em> (2021)</div>
+              formulations that learn label-free-to-fluorescence and phase-to-fluorescence mappings from unpaired
+              populations, which makes the models portable across samples, instruments, and acquisition setups.</p>
+            <div class="refs"><em>IEEE Trans. Multimedia</em> (under review) · <em>Opt. Lasers Eng.</em> (2023) ·
+              <em>Biomed. Opt. Express</em> (2021)
+            </div>
           </div>
 
           <div class="card">
-            <div class="kicker">Phenotyping &amp; perturbation</div>
-            <h3>From single-cell morphology to biological readouts</h3>
-            <p>Image-based morphological profiling that resolves biologically meaningful state: drug-response and
-              cardiotoxicity phenotypes in treated cardiomyocytes, dexamethasone effects on young versus aged skeletal
-              muscle, storage lesion grading in stored red blood cells, and stain-free classification of cancer cells
-              and circulating tumor cells.</p>
+            <div class="kicker">Biological sample analysis</div>
+            <h3>From bench to phenotype</h3>
+            <p>I run the biological side of this work myself: mammalian cell culture, live-cell time-lapse imaging, and
+              fluorescence staining, then apply image-based morphological profiling to resolve biologically meaningful
+              state, including drug-response and cardiotoxicity phenotypes in cardiomyocytes, dexamethasone effects on
+              young versus aged skeletal muscle, storage-lesion grading in stored red blood cells, and stain-free
+              classification of cancer cells and circulating tumor cells.</p>
             <div class="refs"><em>Biosens. Bioelectron.</em> (2022) · <em>IEEE J. Biomed. Health Inform.</em> (2022) ·
               <em>Bioinformatics</em> (2025) · <em>Comput. Methods Programs Biomed.</em> (2025) · <em>Adv. Sensor
                 Res.</em> (2025)
@@ -630,7 +639,7 @@
             <p>Label-free acquisition is cheap enough to generate single-cell corpora at the scale generative models
               need. I also study the opposite regime: what a model can learn when photons are scarce, or when biomedical
               data cannot leave the site it was collected at, via photon-limited classification and privacy-preserving
-              federated learning.</p>
+              federated learning, work that also extends to AI-based cryptanalysis.</p>
             <div class="refs"><em>Information Sciences</em> (2026) · <em>Mathematics</em> (2026) · <em>Cryptography</em>
               (2023)</div>
           </div>
@@ -656,9 +665,10 @@
     <section id="publications">
       <div class="wrap">
         <h2>Publications</h2>
-        <p style="font-size:.88rem;color:var(--muted)">19 journal articles (12 as first author), 8 international
-          conference papers. Journal Impact Factors and JCR category ranks are those in effect at the time of submission. Full list on <a
-            href="https://scholar.google.co.kr/citations?user=fcOVaYoAAAAJ" target="_blank" rel="noopener">Google
+        <p style="font-size:.88rem;color:var(--muted)">20 journal articles (12 as first author), 8 international
+          conference papers, and 1 domestic conference paper. Journal Impact Factors and JCR category ranks are
+          those in effect at the time of submission. Full list on <a href="https://scholar.google.co.kr/citations?user=fcOVaYoAAAAJ" target="_blank"
+            rel="noopener">Google
             Scholar</a>.</p>
 
         <div class="pubgroup">
@@ -677,6 +687,13 @@
               <span class="a"><b>S. Park</b>, J. Lee, J. Park, I. Moon</span>
               <span class="v"><i>IEEE Transactions on Multimedia</i><span class="badge status">under review</span><span
                   class="badge">IF 9.9 · Q1 top 2%</span></span>
+            </li>
+            <li>
+              <span class="t">Transcutaneous laryngeal disorder diagnosing wearables and clinical validation</span>
+              <span class="a">H. Lee, S. Oh, H. Chae, <b>S. Park</b>, J. Jekal, S. Cho, I. Moon, T. Lee, Y. Lee, J. Lim,
+                Y. Park, K. Jang</span>
+              <span class="v"><i>Science Translational Medicine</i><span class="badge status">under review</span><span
+                  class="badge">IF 15.6 · Q1 top 2%</span></span>
             </li>
             <li>
               <span class="t">AI-driven dual-mode phase and label-free fluorescence imaging platform using a single-shot
@@ -857,6 +874,11 @@
               <span class="a"><b>S. Park</b>, I. Moon</span>
               <span class="v">Korea Computer Congress (KIISE), 882–884 (2022), in Korean</span>
             </li>
+            <li>
+              <span class="t">Unsupervised GAN-based substitution cipher attack model using imbalanced datasets</span>
+              <span class="a"><b>S. Park</b>, I. Moon</span>
+              <span class="v">Korea Computer Congress (KIISE), 882–884 (2022), in Korean</span>
+            </li>
           </ol>
         </details>
       </div>
@@ -898,6 +920,20 @@
                 images<small>10-2023-0140106</small></span></li>
           </ul>
         </details>
+
+        <h3 style="font-size:.88rem;font-weight:700;margin:30px 0 10px">Registered Software Copyrights</h3>
+        <ul class="plain">
+          <li><span class="when">Reg. 2026</span><span class="what">Target rare cell identification program based on
+              bright-field images<small>C-2026-037293</small></span></li>
+          <li><span class="when">Reg. 2025</span><span class="what">Optical cryptosystem security analysis program
+              based on adversarial generative models<small>C-2025-043253</small></span></li>
+          <li><span class="when">Reg. 2025</span><span class="what">Photon-counting image reconstruction program based
+              on adversarial generative models<small>C-2025-043254</small></span></li>
+          <li><span class="when">Reg. 2024</span><span class="what">Live cell analysis program based on virtual
+              fluorescence generation<small>C-2024-037615</small></span></li>
+          <li><span class="when">Reg. 2020</span><span class="what">Automated classical cipher analysis program based
+              on generative adversarial networks<small>C-2020-035557</small></span></li>
+        </ul>
       </div>
     </section>
 
@@ -915,7 +951,8 @@
 
         <h3 style="font-size:.88rem;font-weight:700;margin:30px 0 10px">Honors and Awards</h3>
         <ul class="plain">
-          <li><span class="when">2026</span><span class="what">Founder's Day Excellence Award<small>DGIST</small></span>
+          <li><span class="when">2026</span><span class="what">Best Student Award<small>Awarded by the DGIST
+                President for outstanding research performance</small></span>
           </li>
           <li><span class="when">2025</span><span class="what">Best Conference Paper Award<small>ICEIB 2025, New Taipei,
                 Taiwan</small></span></li>
@@ -933,8 +970,8 @@
               imaging, fluorescence staining, sample preparation and optical bench alignment</span></li>
           <li><span class="when">Systems</span><span class="what">Linux server administration, multi-GPU training,
               Git</span></li>
-          <li><span class="when">Languages</span><span class="what">Korean (native), English (professional working
-              proficiency)</span></li>
+          <li><span class="when">Languages</span><span class="what">Korean (native), English (academic
+              proficiency — reading, writing, and oral presentation of research)</span></li>
         </ul>
       </div>
     </section>
@@ -944,7 +981,7 @@
   <footer>
     <div class="wrap" style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;width:100%">
       <span>© 2026 Seonghwan Park</span>
-      <span>Last updated: August 2026</span>
+      <span>Last updated: September 2026</span>
     </div>
   </footer>
 
